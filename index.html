@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Happy 17th Birthday, Keyla Syahrani 🎀</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Google Fonts: Editorial & Cute Scrapbook Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&family=Caveat:wght@600;700&family=Sniglet:wght@800&family=Pacifico&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #FFE6EE;
+      color: #4A1B29;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .font-serif-vintage { font-family: 'Playfair Display', Georgia, serif; }
+    .font-handwriting { font-family: 'Caveat', cursive; }
+    .font-script { font-family: 'Pacifico', cursive; }
+    .font-cute { font-family: 'Sniglet', cursive; }
+
+    /* Pola Gingham Kotak-Kotak Pink */
+    .bg-gingham {
+      background-color: #FFF0F4;
+      background-image: 
+        linear-gradient(45deg, rgba(255, 182, 193, 0.35) 25%, transparent 25%), 
+        linear-gradient(-45deg, rgba(255, 182, 193, 0.35) 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, rgba(255, 182, 193, 0.35) 75%), 
+        linear-gradient(-45deg, transparent 75%, rgba(255, 182, 193, 0.35) 75%);
+      background-size: 24px 24px;
+      background-position: 0 0, 0 12px, 12px -12px, -12px 0px;
+    }
+
+    /* Pola Garis-garis Pink Lucu */
+    .bg-stripes {
+      background: repeating-linear-gradient(
+        90deg,
+        #FFF2F6,
+        #FFF2F6 22px,
+        #FFD5E2 22px,
+        #FFD5E2 44px
+      );
+    }
+
+    /* Animasi Mengambang Lembut */
+    @keyframes gentleFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(2deg); }
+    }
+    .anim-float { animation: gentleFloat 3.8s ease-in-out infinite; }
+    .anim-float-reverse { animation: gentleFloat 4.2s ease-in-out infinite reverse; }
+
+    /* Animasi Beruang Mengintip & Bergoyang */
+    @keyframes bearPeek {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-6px) rotate(-3deg); }
+    }
+    .anim-bear { animation: bearPeek 2.6s ease-in-out infinite; }
+
+    /* Kepakan Sayap Kupu-kupu */
+    @keyframes butterflyWing {
+      0%, 100% { transform: scaleX(1) rotate(-8deg); }
+      50% { transform: scaleX(0.35) rotate(6deg); }
+    }
+    .anim-butterfly {
+      animation: butterflyWing 0.42s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    /* Hati Berdenyut di Kalender */
+    @keyframes heartPulse {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.6)); }
+      50% { transform: scale(1.22); filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.95)); }
+    }
+    .anim-heart-pulse { animation: heartPulse 1.3s ease-in-out infinite; }
+
+    /* Gelombang Musik Spotify */
+    @keyframes soundBar {
+      0%, 100% { height: 4px; }
+      50% { height: 16px; }
+    }
+    .wave-bar:nth-child(1) { animation: soundBar 0.8s ease-in-out infinite; }
+    .wave-bar:nth-child(2) { animation: soundBar 0.6s 0.2s ease-in-out infinite; }
+    .wave-bar:nth-child(3) { animation: soundBar 0.9s 0.4s ease-in-out infinite; }
+    .wave-bar:nth-child(4) { animation: soundBar 0.7s 0.1s ease-in-out infinite; }
+
+    /* Not Musik Melayang */
+    @keyframes floatNote {
+      0% { opacity: 0; transform: translateY(0) scale(0.6) rotate(0deg); }
+      50% { opacity: 1; transform: translateY(-18px) scale(1) rotate(12deg); }
+      100% { opacity: 0; transform: translateY(-36px) scale(0.8) rotate(-12deg); }
+    }
+    .note-1 { animation: floatNote 2.4s ease-in-out infinite; }
+    .note-2 { animation: floatNote 2.7s 1.2s ease-in-out infinite; }
+
+    /* Partikel Berkilau Melayang */
+    @keyframes twinkleSparkle {
+      0%, 100% { opacity: 0.3; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+    .anim-sparkle { animation: twinkleSparkle 2s ease-in-out infinite; }
+
+    /* Denyut Halus Nama Awal */
+    @keyframes nameSubtlePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+    .anim-name { animation: nameSubtlePulse 3s ease-in-out infinite; }
+
+    /* Animasi 4 Foto: Muncul jelas ~2 detik, baru melayang menjauh */
+    @keyframes photoDriftOut1 {
+      0% { opacity: 0; transform: scale(0.7) translate(-30%, -30%) rotate(-6deg); filter: blur(3px); }
+      12% { opacity: 1; transform: scale(1) translate(-18%, -18%) rotate(-3deg); filter: blur(0); }
+      62% { opacity: 1; transform: scale(1.02) translate(-20%, -20%) rotate(-3deg); filter: blur(0); }
+      85% { opacity: 0.6; transform: scale(1.1) translate(-42%, -42%) rotate(-6deg); filter: blur(2px); }
+      100% { opacity: 0; transform: scale(1.25) translate(-75%, -75%) rotate(-10deg); filter: blur(6px); }
+    }
+    @keyframes photoDriftOut2 {
+      0% { opacity: 0; transform: scale(0.7) translate(30%, -30%) rotate(6deg); filter: blur(3px); }
+      12% { opacity: 1; transform: scale(1) translate(18%, -18%) rotate(3deg); filter: blur(0); }
+      62% { opacity: 1; transform: scale(1.02) translate(20%, -20%) rotate(3deg); filter: blur(0); }
+      85% { opacity: 0.6; transform: scale(1.1) translate(42%, -42%) rotate(6deg); filter: blur(2px); }
+      100% { opacity: 0; transform: scale(1.25) translate(75%, -75%) rotate(10deg); filter: blur(6px); }
+    }
+    @keyframes photoDriftOut3 {
+      0% { opacity: 0; transform: scale(0.7) translate(-30%, 30%) rotate(5deg); filter: blur(3px); }
+      12% { opacity: 1; transform: scale(1) translate(-18%, 18%) rotate(2deg); filter: blur(0); }
+      62% { opacity: 1; transform: scale(1.02) translate(-20%, 20%) rotate(2deg); filter: blur(0); }
+      85% { opacity: 0.6; transform: scale(1.1) translate(-42%, 42%) rotate(5deg); filter: blur(2px); }
+      100% { opacity: 0; transform: scale(1.25) translate(-75%, 75%) rotate(8deg); filter: blur(6px); }
+    }
+    @keyframes photoDriftOut4 {
+      0% { opacity: 0; transform: scale(0.7) translate(30%, 30%) rotate(-5deg); filter: blur(3px); }
+      12% { opacity: 1; transform: scale(1) translate(18%, -18%) rotate(-2deg); filter: blur(0); }
+      62% { opacity: 1; transform: scale(1.02) translate(20%, 20%) rotate(-2deg); filter: blur(0); }
+      85% { opacity: 0.6; transform: scale(1.1) translate(42%, 42%) rotate(-5deg); filter: blur(2px); }
+      100% { opacity: 0; transform: scale(1.25) translate(75%, 75%) rotate(-8deg); filter: blur(6px); }
+    }
+
+    .drift-out-1 { animation: photoDriftOut1 5.0s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+    .drift-out-2 { animation: photoDriftOut2 5.0s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s forwards; }
+    .drift-out-3 { animation: photoDriftOut3 5.0s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards; }
+    .drift-out-4 { animation: photoDriftOut4 5.0s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards; }
+
+    /* Countdown */
+    @keyframes countPop {
+      0% { opacity: 0; transform: scale(0.6); }
+      50% { opacity: 1; transform: scale(1.05); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    .anim-countdown { animation: countPop 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+    /* Animasi Lilin */
+    @keyframes softFlicker {
+      0%, 100% { transform: scale(1) rotate(-1deg); filter: drop-shadow(0 0 6px #fbbf24); }
+      50% { transform: scale(1.08, 0.96) rotate(1deg); filter: drop-shadow(0 0 10px #f59e0b); }
+    }
+    .flame-candle { animation: softFlicker 1s infinite ease-in-out; transform-origin: bottom center; }
+
+    /* Amplop Surat Interaktif */
+    .envelope-box { perspective: 1200px; }
+    .envelope-flap {
+      transform-origin: top center;
+      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .envelope-open .envelope-flap {
+      transform: rotateX(180deg);
+      z-index: 1;
+    }
+    .envelope-paper {
+      transition: transform 0.8s 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .envelope-open .envelope-paper {
+      transform: translateY(-85px);
+      z-index: 15;
+    }
+
+    /* Renda & Bingkai Cermin */
+    .scallop-border {
+      box-shadow: 0 0 0 6px #FFF, 0 0 0 10px #FFC1D6, 0 12px 30px rgba(244, 63, 94, 0.2);
+    }
+    .shadow-warm {
+      box-shadow: 0 12px 30px -6px rgba(225, 29, 72, 0.15), 0 4px 10px -2px rgba(0, 0, 0, 0.03);
+    }
+  </style>
+</head>
+<body class="selection:bg-pink-300 selection:text-pink-950">
+
+  <!-- Filter SVG Chroma Key Video Teks -->
+  <svg width="0" height="0" class="absolute pointer-events-none" style="position: absolute; width: 0; height: 0; overflow: hidden;" aria-hidden="true">
+    <defs>
+      <filter id="green-screen-remover" color-interpolation-filters="sRGB">
+        <feColorMatrix type="matrix" values="
+          1 0 0 0 0
+          0 1 0 0 0
+          0 0 1 0 0
+          3.5 -3.2 3.5 1 -0.2
+        " result="keyed" />
+        <feComponentTransfer>
+          <feFuncA type="linear" slope="6" intercept="-0.8"/>
+        </feComponentTransfer>
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- ========================================================
+       TAHAP 1: HALAMAN AWAL (FOTO SCRAPBOOK UTAMA)
+       ======================================================== -->
+  <section id="screen-intro" class="fixed inset-0 z-50 flex flex-col items-center justify-between p-6 select-none bg-gradient-to-b from-[#FFF5F7] to-[#FFEBEF]">
+    
+    <div class="pt-4 text-center">
+      <span class="text-[11px] tracking-[0.25em] uppercase text-rose-500 font-semibold">
+        Sweet Seventeen
+      </span>
+    </div>
+
+    <div class="flex flex-col items-center max-w-sm w-full my-auto px-2">
+      
+      <div class="relative w-64 md:w-72 aspect-[3/4] bg-white rounded-2xl p-2.5 shadow-warm border border-rose-100 mb-5">
+        <div class="w-full h-full rounded-xl overflow-hidden bg-rose-50 flex items-center justify-center">
+          <img 
+            id="intro-photo"
+            src="https://i.ibb.co.com/jk5ZsKsX/Scrapbook-Photo-Collage-Happy-Birthday-Your-Story-20260904-124046-0000.png" 
+            alt="[Image of Kolase Foto Ulang Tahun Keyla]" 
+            class="w-full h-full object-cover"
+          >
+        </div>
+      </div>
+
+      <h1 class="text-2xl md:text-3xl font-serif-vintage font-bold text-stone-800 text-center tracking-tight">
+        Selamat Ulang Tahun, <span class="text-rose-600 font-serif-vintage">Keyla</span>
+      </h1>
+      <p class="text-stone-500 text-xs md:text-sm mt-1.5 text-center font-normal leading-relaxed max-w-[270px]">
+        Ada sedikit kejutan video yang sudah disiapkan untukmu hari ini.
+      </p>
+
+    </div>
+
+    <div class="w-full max-w-xs pb-4">
+      <button id="btn-start-journey" class="w-full py-3.5 px-6 rounded-xl bg-rose-500 hover:bg-rose-600 active:scale-95 text-white font-medium text-sm transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer">
+        <span>Buka Kejutan</span>
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </button>
+    </div>
+
+  </section>
+
+  <!-- ========================================================
+       TAHAP 2: ALUR STORYTELLING
+       (Nama -> 4 Foto Diam 2 Detik Lalu Menjauh -> Pesan -> Countdown)
+       ======================================================== -->
+  <section id="screen-story" class="fixed inset-0 z-50 hidden flex flex-col items-center justify-center p-6 bg-gradient-to-b from-[#FFF5F7] to-[#FFEBEF] select-none overflow-hidden">
+    
+    <!-- 1. Nama Keyla Syahrani -->
+    <div id="story-name-box" class="absolute inset-0 flex flex-col items-center justify-center text-center p-6 transition-all duration-700">
+      <span class="text-xs uppercase tracking-[0.25em] font-medium text-rose-400 mb-2">Untuk Seseorang yang Istimewa</span>
+      <h2 class="text-4xl md:text-5xl font-serif-vintage font-bold text-rose-600 anim-name px-4">
+        Keyla Syahrani
+      </h2>
+      <p class="text-base md:text-lg font-handwriting text-stone-600 mt-2">
+        Di hari ulang tahunmu yang ke-17
+      </p>
+    </div>
+
+    <!-- 2. 4 Foto Kenangan (Tampil Tenang 2 Detik Penuh, Lalu Melayang Menjauh) -->
+    <div id="story-photos-box" class="absolute inset-0 hidden pointer-events-none flex items-center justify-center">
+      
+      <div class="absolute w-36 h-48 md:w-48 md:h-64 bg-white p-2 rounded-xl shadow-warm border border-rose-100 drift-out-1">
+        <img src="https://i.ibb.co.com/BVH7L9L8/IMG-20260607-WA0019.jpg" alt="[Image of Foto Kenangan Keyla 1]" class="w-full h-full object-cover rounded-lg">
+      </div>
+
+      <div class="absolute w-36 h-48 md:w-48 md:h-64 bg-white p-2 rounded-xl shadow-warm border border-rose-100 drift-out-2">
+        <img src="https://i.ibb.co.com/4RC648Tn/IMG-20260124-WA0029.jpg" alt="[Image of Foto Kenangan Keyla 2]" class="w-full h-full object-cover rounded-lg">
+      </div>
+
+      <div class="absolute w-36 h-48 md:w-48 md:h-64 bg-white p-2 rounded-xl shadow-warm border border-rose-100 drift-out-3">
+        <img src="https://i.ibb.co.com/s9ZQHKDY/IMG-20260621-WA0008.jpg" alt="[Image of Foto Kenangan Keyla 3]" class="w-full h-full object-cover rounded-lg">
+      </div>
+
+      <div class="absolute w-36 h-48 md:w-48 md:h-64 bg-white p-2 rounded-xl shadow-warm border border-rose-100 drift-out-4">
+        <img src="https://i.ibb.co.com/JYNtB5Z/IMG-20260712-WA0069.jpg" alt="[Image of Foto Kenangan Keyla 4]" class="w-full h-full object-cover rounded-lg">
+      </div>
+
+    </div>
+
+    <!-- 3. Pesan Ucapan -->
+    <div id="story-message-box" class="absolute inset-0 hidden flex flex-col items-center justify-center p-6 text-center transition-all duration-700">
+      <div class="bg-white rounded-2xl p-6 md:p-8 max-w-sm w-full shadow-warm border border-rose-100 transform scale-95 opacity-0 transition-all duration-500" id="message-card">
+        
+        <span class="text-[11px] uppercase tracking-widest text-rose-500 font-semibold block mb-3">
+          Pesan Untukmu
+        </span>
+        
+        <p class="text-sm md:text-base text-stone-700 leading-relaxed font-normal mb-5">
+          "happy birthday sayangggg, sudahh 17 ajaa nieee, selamattt yaaa, semogaa disehatkannn badannnyaa, panjanggg umurr, selaluuu happiii, dannn dii loloskannn kee ptn yanggg kamuu mauu aamiinn"
+        </p>
+
+        <span class="font-handwriting text-2xl text-rose-600 block mb-5">
+          Dari yang selalu mendoakanmu
+        </span>
+
+        <button id="btn-next-to-countdown" class="w-full py-3 px-5 rounded-xl bg-rose-500 hover:bg-rose-600 active:scale-95 text-white font-medium text-xs tracking-wide transition flex items-center justify-center gap-2 cursor-pointer">
+          <span>Lanjut ke Video</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- 4. Hitung Mundur 3 2 1 -->
+    <div id="story-countdown-box" class="absolute inset-0 hidden flex flex-col items-center justify-center text-center select-none">
+      <div class="relative w-28 h-28 flex items-center justify-center mx-auto mb-3">
+        <div class="absolute inset-0 rounded-full border border-rose-200"></div>
+        <span id="countdown-number" class="text-6xl font-serif-vintage font-bold text-rose-600 block">
+          3
+        </span>
+      </div>
+      <p class="text-[11px] tracking-[0.25em] uppercase text-rose-400 font-medium">
+        Memulai Video
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ========================================================
+       TAHAP 3: PEMUTAR VIDEO 16:9 DENGAN TEKS "HBD SAYANG" BESAR
+       ======================================================== -->
+  <section id="screen-video" class="fixed inset-0 z-40 hidden bg-black flex flex-col items-center justify-center p-3 md:p-6 select-none">
+    <div class="w-full max-w-3xl flex flex-col items-center gap-2">
+      
+      <!-- Video Teks HBD di Bagian Atas -->
+      <div class="w-full max-w-lg md:max-w-xl h-36 sm:h-44 md:h-52 relative flex items-center justify-center pointer-events-none -mb-2 overflow-visible">
+        <canvas id="text-header-canvas" class="w-full h-full object-contain filter drop-shadow-[0_4px_16px_rgba(255,255,255,0.2)] z-10 transform scale-125 sm:scale-135"></canvas>
+        
+        <video 
+          id="text-header-video"
+          class="absolute w-full h-[320%] max-w-none object-contain pointer-events-none opacity-0 transition-opacity"
+          style="filter: url(#green-screen-remover);"
+          playsinline 
+          webkit-playsinline
+          muted
+          loop
+          preload="auto"
+          src="https://videotourl.com/videos/1788511796664-499be5df-8623-430b-a8c9-813e8add12c4.mp4"
+        ></video>
+      </div>
+
+      <!-- Frame Video Utama 16:9 -->
+      <div class="w-full aspect-video rounded-2xl overflow-hidden bg-stone-950 border border-white/10 shadow-2xl relative flex items-center justify-center">
+        <video 
+          id="birthday-video" 
+          class="w-full h-full object-contain" 
+          playsinline 
+          webkit-playsinline 
+          preload="auto"
+          src="https://videotourl.com/videos/1788498958354-9a707068-79be-455f-82dd-ba45b3addf41.mp4"
+        >
+          Browser kamu tidak mendukung video ini.
+        </video>
+      </div>
+
+      <!-- Tombol Lewati Video -->
+      <div class="w-full flex items-center justify-between px-1 pt-1">
+        <span class="text-xs text-stone-400 font-light">
+          Video Kenangan
+        </span>
+        
+        <button id="btn-skip-video" class="px-4 py-2 rounded-lg bg-white/15 hover:bg-white/25 active:bg-white/35 text-white text-xs font-medium backdrop-blur-md border border-white/20 transition flex items-center gap-1.5 cursor-pointer">
+          <span>Lewati video</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================
+       TAHAP 4: HALAMAN UTAMA SCRAPBOOK AESTHETIC BARU
+       ======================================================== -->
+  <main id="screen-main" class="min-h-screen pb-32 hidden opacity-0 transition-opacity duration-1000 bg-[#FFF0F4] relative">
+    
+    <!-- Audio Pemutar Musik BGM Natif -->
+    <audio id="bgm-audio" preload="auto" playsinline webkit-playsinline></audio>
+
+    <!-- ========================================================
+         BAGIAN 1: "TODAY IS ALL ABOUT YOU" + KALENDER + SPOTIFY CARD
+         ======================================================== -->
+    <section class="pt-12 pb-10 px-5 text-center max-w-md mx-auto relative">
+      
+      <!-- Judul Bagian 1 Beranimasi Lembut -->
+      <h2 class="font-cute text-2xl md:text-3xl text-[#7E2D48] mb-1 tracking-wide anim-float">
+        Today is all about you ✨
+      </h2>
+      <p class="text-xs text-rose-400 mb-6 font-medium">Hari paling istimewa untuk Keyla Syahrani</p>
+
+      <!-- Kotak Kalender Pink Aesthetic -->
+      <div class="relative w-64 md:w-72 mx-auto bg-gradient-to-br from-[#FF5C8A] to-[#E93B6C] rounded-[28px] p-5 text-white shadow-warm border-2 border-white/40 mb-8 transform hover:scale-105 transition-transform duration-300">
+        
+        <!-- Ikon Telapak Kucing Lucu di Sudut Kiri Atas -->
+        <div class="absolute -top-3.5 left-6 text-2xl filter drop-shadow-sm select-none anim-float">
+          🐾
+        </div>
+
+        <!-- Tulisan Bulan Berkeluk -->
+        <div class="font-script text-2xl md:text-3xl text-white text-center -mt-1 mb-2 tracking-wider">
+          Oktober
+        </div>
+
+        <!-- Header Hari (S M T W T F S) -->
+        <div class="grid grid-cols-7 gap-1 text-[11px] font-bold text-pink-100 mb-2 border-b border-white/20 pb-1">
+          <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+        </div>
+
+        <!-- Grid Tanggal -->
+        <div class="grid grid-cols-7 gap-1 text-xs font-semibold text-center items-center">
+          <span class="opacity-30">28</span><span class="opacity-30">29</span><span class="opacity-30">30</span>
+          <span>1</span><span>2</span><span>3</span><span>4</span>
+          
+          <!-- Tanggal 5 (Dilingkari Hati Berdenyut) -->
+          <div class="relative flex items-center justify-center py-0.5">
+            <span class="relative z-10 font-bold text-white text-sm">5</span>
+            <svg class="absolute inset-0 w-8 h-8 -top-1 -left-0.5 text-white anim-heart-pulse pointer-events-none fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </div>
+
+          <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+          <span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span>
+          <span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span>
+          <span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
+        </div>
+
+        <!-- Hiasan Bunga Aster di Sudut Bawah -->
+        <div class="absolute -bottom-3 -right-3 text-3xl select-none filter drop-shadow anim-float-reverse">
+          🌸
+        </div>
+      </div>
+
+      <!-- Teks "Nyalakan Musik" -->
+      <h3 class="font-cute text-lg text-[#7E2D48] mb-2 tracking-wide flex items-center justify-center gap-1.5">
+        <span>Nyalakan Musik</span> 🎧
+      </h3>
+
+      <!-- Widget Pemutar Lagu ala Spotify (Langsung dari URL VideoToURL yang Kamu Berikan) -->
+      <div class="relative max-w-xs mx-auto">
+        
+        <!-- Not Musik Mengambang Keluar Saat Lagu Berputar -->
+        <div id="floating-notes" class="absolute -top-7 right-4 pointer-events-none hidden">
+          <span class="note-1 absolute text-rose-500 text-sm font-bold">🎵</span>
+          <span class="note-2 absolute -right-4 text-pink-400 text-base font-bold">🎶</span>
+        </div>
+
+        <div class="bg-[#181818] rounded-2xl p-3 shadow-2xl border border-white/10 text-white flex flex-col gap-2 text-left">
+          
+          <div class="flex items-center justify-between gap-2.5">
+            
+            <!-- Thumbnail Cover Lagu -->
+            <div class="w-12 h-12 rounded-xl overflow-hidden bg-stone-800 shrink-0 border border-white/10 relative">
+              <img id="track-cover-img" src="https://i.ibb.co.com/BVH7L9L8/IMG-20260607-WA0019.jpg" alt="[Image of Cover Lagu]" class="w-full h-full object-cover transition-opacity duration-300">
+            </div>
+
+            <!-- Info Lagu -->
+            <div class="flex-1 min-w-0 pr-1">
+              <h4 id="track-title-text" class="text-xs font-bold text-white truncate leading-tight">Masa ini, nanti, & masa indah lainnya</h4>
+              <p id="track-artist-text" class="text-[10px] text-stone-400 truncate mt-0.5">Nuca • Lagu 1 dari 2</p>
+              
+              <!-- Wave Equalizer -->
+              <div id="spotify-wave" class="flex items-end gap-1 h-3 mt-1 opacity-30 transition-opacity">
+                <span class="wave-bar w-0.5 bg-rose-400 rounded-full"></span>
+                <span class="wave-bar w-0.5 bg-rose-300 rounded-full"></span>
+                <span class="wave-bar w-0.5 bg-rose-400 rounded-full"></span>
+                <span class="wave-bar w-0.5 bg-rose-300 rounded-full"></span>
+              </div>
+            </div>
+
+            <!-- Tombol Navigasi Trek (Prev, Play/Pause, Next) -->
+            <div class="flex items-center gap-1.5 shrink-0">
+              <button id="btn-prev-track" class="w-7 h-7 rounded-full text-stone-400 hover:text-white flex items-center justify-center transition active:scale-90 cursor-pointer" title="Lagu Sebelumnya">
+                <i data-lucide="skip-back" class="w-3.5 h-3.5 fill-current"></i>
+              </button>
+
+              <!-- Tombol Play / Pause dengan SVG Stabil (Anti-Macet) -->
+              <button id="btn-spotify-toggle" class="w-10 h-10 rounded-full bg-white text-stone-900 flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition cursor-pointer select-none" title="Putar / Jeda">
+                <svg id="icon-play" class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+                <svg id="icon-pause" class="w-4 h-4 fill-current hidden" viewBox="0 0 24 24">
+                  <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                </svg>
+              </button>
+
+              <button id="btn-next-track" class="w-7 h-7 rounded-full text-stone-400 hover:text-white flex items-center justify-center transition active:scale-90 cursor-pointer" title="Lagu Berikutnya">
+                <i data-lucide="skip-forward" class="w-3.5 h-3.5 fill-current"></i>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- Garis Waktu Pemutar Lagu (Progress Bar Berjalan Real-Time) -->
+          <div class="w-full flex items-center gap-2 pt-1 border-t border-white/5">
+            <span id="audio-time-current" class="text-[9px] text-stone-400 font-mono">0:00</span>
+            <div id="audio-progress-container" class="flex-1 h-1.5 bg-stone-700 rounded-full overflow-hidden cursor-pointer">
+              <div id="audio-progress-bar" class="h-full bg-gradient-to-r from-rose-500 to-pink-400 w-0 transition-all duration-200"></div>
+            </div>
+            <span id="audio-time-total" class="text-[9px] text-stone-400 font-mono">--:--</span>
+          </div>
+
+          <div class="flex items-center justify-between pt-0.5">
+            <span id="audio-status-tag" class="text-[9px] text-pink-300 font-medium">Klik putar untuk mendengarkan 🎵</span>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================================
+         BAGIAN 2: "PRETTY GIRL" CERMIN HATI & MOTIF GINGHAM
+         ======================================================== -->
+    <section class="bg-gingham py-14 px-4 border-y border-pink-200 relative overflow-hidden text-center">
+      
+      <!-- Elemen Dekorasi Awan & Bintang Bergerak -->
+      <div class="absolute -top-3 left-4 text-4xl opacity-75 anim-float select-none">☁️</div>
+      <div class="absolute top-24 right-3 text-3xl opacity-75 anim-float-reverse select-none">☁️</div>
+      <div class="absolute bottom-6 left-6 text-2xl opacity-70 anim-sparkle select-none">⭐</div>
+
+      <!-- Judul "Pretty Girl" -->
+      <h3 class="font-script text-3xl md:text-4xl text-[#7E2D48] mb-6 anim-float">
+        Pretty Girl 🎀
+      </h3>
+
+      <!-- Cermin Hati Renda Berisi Foto Keyla -->
+      <div class="relative w-64 md:w-72 aspect-square mx-auto flex items-center justify-center">
+        
+        <div class="absolute -top-3 left-3 text-2xl anim-sparkle select-none">✨</div>
+        <div class="absolute top-6 -right-3 text-3xl anim-float-reverse select-none">⭐</div>
+        <div class="absolute -bottom-3 -left-3 text-2xl anim-float select-none">💐</div>
+
+        <div class="w-56 h-56 rounded-full scallop-border bg-white p-2 flex items-center justify-center relative shadow-warm transform hover:rotate-1 transition-transform duration-300">
+          <div class="w-full h-full rounded-full overflow-hidden bg-pink-100 relative">
+            <img 
+              src="https://i.ibb.co.com/4RC648Tn/IMG-20260124-WA0029.jpg" 
+              alt="[Image of Foto Cantik Keyla]" 
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+            >
+          </div>
+          <div class="absolute -bottom-4 text-3xl filter drop-shadow select-none anim-float">
+            🎀
+          </div>
+        </div>
+
+      </div>
+
+      <p class="font-handwriting text-2xl text-rose-700 mt-7 max-w-xs mx-auto font-bold">
+        "Kamu selalu cantik dengan caramu sendiri, hari ini dan seterusnya."
+      </p>
+
+    </section>
+
+    <!-- ========================================================
+         BAGIAN 3: KUE ULANG TAHUN & "LETTER FOR YOU" (AMPLOP INTERAKTIF)
+         ======================================================== -->
+    <section class="py-14 px-4 text-center max-w-md mx-auto relative">
+      
+      <!-- Kue Ulang Tahun Lilin Menyala -->
+      <div class="mb-10 flex flex-col items-center">
+        <div class="relative w-28 h-24 mb-2 flex flex-col items-center justify-end">
+          <div id="candle-flame" class="w-4 h-7 bg-gradient-to-t from-amber-400 via-orange-300 to-yellow-200 rounded-full flame-candle cursor-pointer transition-all duration-500 z-10" title="Klik untuk tiup"></div>
+          <div class="w-3 h-8 bg-pink-400 rounded-t-sm -mt-0.5 shadow-sm flex items-center justify-center text-[9px] text-white font-bold">17</div>
+          <div class="w-24 h-8 bg-gradient-to-r from-pink-200 via-rose-100 to-pink-200 rounded-xl border-b-2 border-pink-300 flex items-center justify-center text-[8px] font-bold text-rose-600">KEYLA</div>
+          <div class="w-28 h-2 bg-pink-200/80 rounded-full -mt-0.5"></div>
+        </div>
+        <button id="btn-blow-candle" class="px-5 py-2 rounded-full bg-rose-500 hover:bg-rose-600 active:scale-95 text-white font-cute text-xs shadow-md transition cursor-pointer">
+          <span id="blow-btn-text">Tiup Lilin 🎂</span>
+        </button>
+        <p id="candle-blown-msg" class="hidden text-xs text-rose-600 font-bold mt-2 animate-bounce">
+          Semoga semua impianmu terkabul, Aamiin! 🤲✨
+        </p>
+      </div>
+
+      <!-- Judul "Letter for you" -->
+      <h3 class="font-script text-3xl md:text-4xl text-[#7E2D48] mb-3 anim-float">
+        Letter for you 💌
+      </h3>
+      <p class="text-[11px] text-rose-400 mb-6 font-medium">Sentuh amplop pink di bawah untuk membaca isi suratnya:</p>
+
+      <!-- Amplop Lipat Estetik -->
+      <div class="relative envelope-box cursor-pointer select-none max-w-sm mx-auto" id="envelope-box">
+        <div class="w-full h-60 bg-gradient-to-b from-[#FFAEC7] to-[#FF8DAF] rounded-3xl relative shadow-warm overflow-visible border-2 border-white/60 flex items-center justify-center">
+          
+          <div class="envelope-flap absolute top-0 left-0 right-0 h-32 bg-[#FF8DAF] rounded-b-3xl border-b-2 border-pink-400/40 flex items-center justify-center shadow-md z-20">
+            <div class="w-10 h-10 rounded-full bg-white/95 border-2 border-pink-300 shadow flex items-center justify-center text-rose-500 text-sm anim-float">
+              🎀
+            </div>
+          </div>
+
+          <div class="envelope-paper w-[90%] bg-[#FFFDF9] rounded-2xl p-5 shadow-lg border border-pink-200 text-left z-0 select-none transform translate-y-6">
+            <h4 class="text-sm font-bold text-stone-800 font-serif-vintage border-b border-pink-100 pb-1 mb-2">
+              Happy Birthday, Beautiful Girl! 💖
+            </h4>
+            <p class="text-[11px] text-stone-600 leading-relaxed font-light mb-2">
+              Terima kasih karena udah menjadi seseorang yang membawa banyak hal baik untuk orang-orang di sekitarmu, terutama buat aku.
+            </p>
+            <p class="text-[11px] text-stone-600 leading-relaxed font-light mb-3">
+              Semoga kamu selalu dikelilingi orang-orang yang tulus, kesehatan yang melimpah, dan diloloskan ke PTN yang kamu tuju.
+            </p>
+            <div class="text-right border-t border-pink-100 pt-1.5">
+              <span class="font-handwriting text-xl text-rose-600 font-bold">Love Letter ✨</span>
+            </div>
+          </div>
+
+          <div class="absolute bottom-0 left-0 right-0 h-32 bg-[#FFAEC7]/95 rounded-b-3xl border-t border-white/40 flex items-end justify-center pb-3 pointer-events-none z-10">
+            <span class="font-cute text-xs text-white tracking-wide">Ketuk untuk buka surat</span>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================================
+         BAGIAN 4: "KUMPULAN FOTO MY BEAUTIFUL GIRL" (STRIPES & VINTAGE MIRROR)
+         ======================================================== -->
+    <section class="bg-stripes py-14 px-4 border-t border-pink-200 relative text-center">
+      
+      <!-- Banner Beruang Lucu di Atas Heading -->
+      <div class="inline-block relative mb-6">
+        <div class="absolute -top-7 left-1/2 -translate-x-1/2 text-3xl select-none filter drop-shadow anim-bear">
+          🐻
+        </div>
+        <div class="bg-white/95 px-6 py-2 rounded-2xl border-2 border-[#7E2D48] shadow-md">
+          <h3 class="font-cute text-base md:text-lg text-[#7E2D48] tracking-wide">
+            Kumpulan foto my beautiful girl
+          </h3>
+        </div>
+      </div>
+
+      <!-- Cermin Ornate Klasik dengan Kupu-kupu Beranimasi -->
+      <div class="relative w-56 md:w-64 mx-auto mb-10">
+        
+        <div class="absolute -top-4 -left-3 text-3xl anim-butterfly select-none z-10">
+          🦋
+        </div>
+
+        <div class="w-48 h-60 mx-auto rounded-[45px] p-2 bg-gradient-to-b from-white via-pink-50 to-white shadow-2xl border-4 border-pink-200 relative flex items-center justify-center">
+          <div class="w-full h-full rounded-[38px] overflow-hidden bg-pink-100">
+            <img 
+              src="https://i.ibb.co.com/s9ZQHKDY/IMG-20260621-WA0008.jpg" 
+              alt="[Image of Foto Utama Cermin Keyla]" 
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+            >
+          </div>
+        </div>
+
+        <div class="absolute -bottom-3 -right-3 text-3xl anim-float select-none">☁️</div>
+        <div class="absolute -bottom-2 -left-2 text-2xl anim-float-reverse select-none">🌷</div>
+      </div>
+
+      <!-- Grid 4 Foto Keyla Berbingkai Renda (Sentuh untuk Memunculkan Partikel Hati) -->
+      <div class="grid grid-cols-2 gap-4 max-w-xs md:max-w-sm mx-auto mb-4">
+        
+        <div class="scrapbook-photo-card bg-white p-2 rounded-2xl shadow-md border-2 border-pink-200 transform hover:scale-105 active:scale-95 transition-all cursor-pointer">
+          <div class="aspect-square rounded-xl overflow-hidden bg-pink-50">
+            <img src="https://i.ibb.co.com/BVH7L9L8/IMG-20260607-WA0019.jpg" alt="[Image of Foto Keyla 1]" class="w-full h-full object-cover">
+          </div>
+        </div>
+
+        <div class="scrapbook-photo-card bg-white p-2 rounded-2xl shadow-md border-2 border-pink-200 transform hover:scale-105 active:scale-95 transition-all cursor-pointer">
+          <div class="aspect-square rounded-xl overflow-hidden bg-pink-50">
+            <img src="https://i.ibb.co.com/4RC648Tn/IMG-20260124-WA0029.jpg" alt="[Image of Foto Keyla 2]" class="w-full h-full object-cover">
+          </div>
+        </div>
+
+        <div class="scrapbook-photo-card bg-white p-2 rounded-2xl shadow-md border-2 border-pink-200 transform hover:scale-105 active:scale-95 transition-all cursor-pointer">
+          <div class="aspect-square rounded-xl overflow-hidden bg-pink-50">
+            <img src="https://i.ibb.co.com/s9ZQHKDY/IMG-20260621-WA0008.jpg" alt="[Image of Foto Keyla 3]" class="w-full h-full object-cover">
+          </div>
+        </div>
+
+        <div class="scrapbook-photo-card bg-white p-2 rounded-2xl shadow-md border-2 border-pink-200 transform hover:scale-105 active:scale-95 transition-all cursor-pointer">
+          <div class="aspect-square rounded-xl overflow-hidden bg-pink-50">
+            <img src="https://i.ibb.co.com/JYNtB5Z/IMG-20260712-WA0069.jpg" alt="[Image of Foto Keyla 4]" class="w-full h-full object-cover">
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================
+         BAGIAN 5: PESAN PANJANG & CLOSING SECTION
+         ======================================================== -->
+    <section class="py-14 px-5 text-center max-w-md mx-auto relative">
+      
+      <div class="bg-white/95 rounded-3xl p-6 shadow-warm border border-pink-100 text-stone-700 text-xs leading-relaxed font-light mb-12 text-center transform hover:scale-[1.01] transition-transform">
+        <p class="mb-3">
+          "Semoga kamu selalu dikelilingi sama orang-orang yang tulus, hal-hal yang baik, dan momen-momen sederhana yang bikin hati kamu tenang."
+        </p>
+        <p class="mb-3">
+          "Nggak perlu jadi sempurna buat jadi seseorang yang berarti, karena menjadi diri sendiri aja udah lebih dari cukup."
+        </p>
+        <p class="mb-4">
+          "Nikmatin setiap langkah yang kamu jalani, rayain setiap pencapaian sekecil apa pun, dan jangan lupa kasih waktu buat diri sendiri untuk istirahat kalau lagi lelah."
+        </p>
+        <p class="font-serif-vintage italic text-rose-600 font-semibold text-sm">
+          Wishing you endless happiness, beautiful memories, and all the good things life has to offer.
+        </p>
+      </div>
+
+      <!-- Heading "Closing" -->
+      <h3 class="font-script text-4xl text-[#7E2D48] mb-6 anim-float">
+        Closing 🌸
+      </h3>
+
+      <!-- Frame Cermin Oval Renda Berisi Foto Keyla & Boneka Beruang -->
+      <div class="relative w-56 mx-auto mb-6">
+        <div class="absolute -top-3 -right-2 text-3xl anim-bear select-none z-10">🧸</div>
+        <div class="absolute top-8 -left-3 text-2xl anim-float select-none z-10">💐</div>
+
+        <div class="w-48 h-56 mx-auto rounded-[50px] p-2 bg-gradient-to-b from-white via-pink-100 to-white shadow-xl border-4 border-pink-200 flex items-center justify-center">
+          <div class="w-full h-full rounded-[42px] overflow-hidden bg-pink-100">
+            <img src="https://i.ibb.co.com/JYNtB5Z/IMG-20260712-WA0069.jpg" alt="[Image of Foto Penutup Keyla]" class="w-full h-full object-cover">
+          </div>
+        </div>
+      </div>
+
+      <!-- Kartu Pesan Terakhir -->
+      <div class="bg-white/95 rounded-3xl p-6 shadow-warm border border-pink-200 text-stone-700 text-xs leading-relaxed text-center relative">
+        <h5 class="font-serif-vintage font-bold text-sm text-stone-800 mb-2">
+          That's all for this little surprise.
+        </h5>
+        <p class="mb-2 font-light">
+          Semoga halaman kecil ini bisa bikin kamu senyum, walaupun cuma sebentar.
+        </p>
+        <p class="font-light mb-4">
+          Terima kasih sudah meluangkan waktu buat membacanya sampai selesai.
+        </p>
+        <p class="font-handwriting text-2xl text-rose-600 font-bold">
+          Selamat ulang tahun ke-17, Keyla Syahrani! ❤️
+        </p>
+      </div>
+
+    </section>
+
+    <!-- Footer Manis -->
+    <footer class="text-center text-stone-400 text-[11px] pb-10">
+      <p class="font-cute text-sm text-rose-400">Dibuat khusus dengan sepenuh cinta untuk Keyla Syahrani</p>
+      <p class="mt-0.5">Happy 17th Birthday • 5 Oktober 2026</p>
+    </footer>
+
+  </main>
+
+  <!-- ========================================================
+       LOGIKA JAVASCRIPT LENGKAP & SISTEM AUDIO INSTAN
+       ======================================================== -->
+  <script>
+    lucide.createIcons();
+
+    // ========================================================
+    // NADA AUDIO LEMBUT (Web Audio API)
+    // ========================================================
+    let audioCtx = null;
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    function playWarmChime(freq, duration = 0.25) {
+      try {
+        const ctx = getAudioContext();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(freq, ctx.currentTime);
+
+        gain.gain.setValueAtTime(0.2, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start();
+        osc.stop(ctx.currentTime + duration);
+      } catch (e) {}
+    }
+
+    // ========================================================
+    // PROSES CHROMA KEY REALTIME TEKS "HBD SAYANG"
+    // ========================================================
+    const textVideo = document.getElementById('text-header-video');
+    const textCanvas = document.getElementById('text-header-canvas');
+    const textCtx = textCanvas.getContext('2d', { willReadFrequently: true });
+    let canUseCanvasChroma = true;
+
+    function renderChromaLoop() {
+      if (!textVideo.paused && !textVideo.ended && canUseCanvasChroma) {
+        const vw = textVideo.videoWidth || 720;
+        const vh = textVideo.videoHeight || 1280;
+
+        const cropX = vw * 0.05;
+        const cropW = vw * 0.90;
+        const cropY = vh * 0.42;
+        const cropH = vh * 0.16;
+
+        if (textCanvas.width !== cropW || textCanvas.height !== cropH) {
+          textCanvas.width = cropW;
+          textCanvas.height = cropH;
+        }
+
+        try {
+          textCtx.drawImage(textVideo, cropX, cropY, cropW, cropH, 0, 0, cropW, cropH);
+          const imgData = textCtx.getImageData(0, 0, cropW, cropH);
+          const d = imgData.data;
+          const len = d.length;
+
+          for (let i = 0; i < len; i += 4) {
+            const r = d[i];
+            const g = d[i + 1];
+            const b = d[i + 2];
+
+            if (g > 75 && g > r * 1.22 && g > b * 1.22) {
+              d[i + 3] = 0;
+            } else if (g > 55 && g > r * 1.05 && g > b * 1.05) {
+              d[i + 3] = Math.max(0, 255 - (g - Math.max(r, b)) * 4.5);
+            }
+          }
+          textCtx.putImageData(imgData, 0, 0);
+          textCanvas.style.display = 'block';
+          textVideo.classList.add('opacity-0');
+        } catch (e) {
+          canUseCanvasChroma = false;
+          textCanvas.style.display = 'none';
+          textVideo.classList.remove('opacity-0');
+        }
+      }
+      requestAnimationFrame(renderChromaLoop);
+    }
+
+    // ========================================================
+    // ALUR STORYTELLING
+    // ========================================================
+    const screenIntro = document.getElementById('screen-intro');
+    const screenStory = document.getElementById('screen-story');
+    const storyNameBox = document.getElementById('story-name-box');
+    const storyPhotosBox = document.getElementById('story-photos-box');
+    const storyMessageBox = document.getElementById('story-message-box');
+    const messageCard = document.getElementById('message-card');
+    const storyCountdownBox = document.getElementById('story-countdown-box');
+    const countdownNumber = document.getElementById('countdown-number');
+    
+    const screenVideo = document.getElementById('screen-video');
+    const screenMain = document.getElementById('screen-main');
+    const video = document.getElementById('birthday-video');
+    const bgmAudio = document.getElementById('bgm-audio');
+
+    const btnStartJourney = document.getElementById('btn-start-journey');
+    const btnNextToCountdown = document.getElementById('btn-next-to-countdown');
+    const btnSkipVideo = document.getElementById('btn-skip-video');
+
+    // 1. Klik Tombol "Buka Kejutan"
+    btnStartJourney.addEventListener('click', () => {
+      getAudioContext();
+
+      screenIntro.classList.add('transition-opacity', 'duration-500', 'opacity-0');
+      setTimeout(() => {
+        screenIntro.classList.add('hidden');
+        screenStory.classList.remove('hidden');
+
+        playWarmChime(523.25, 0.35); // C5
+
+        // FASE 1: Nama Keyla tampil 2.5 detik
+        setTimeout(() => {
+          storyNameBox.classList.add('opacity-0', 'scale-95');
+
+          setTimeout(() => {
+            storyNameBox.classList.add('hidden');
+            
+            // FASE 2: 4 Foto muncul tenang selama 2 detik penuh sebelum melayang
+            storyPhotosBox.classList.remove('hidden');
+            playWarmChime(659.25, 0.25); // E5
+
+            setTimeout(() => {
+              storyPhotosBox.classList.add('hidden');
+
+              // FASE 3: Pesan Ucapan Muncul
+              storyMessageBox.classList.remove('hidden');
+              setTimeout(() => {
+                messageCard.classList.remove('scale-95', 'opacity-0');
+                messageCard.classList.add('scale-100', 'opacity-100');
+                playWarmChime(783.99, 0.3); // G5
+              }, 50);
+
+            }, 5000);
+
+          }, 500);
+
+        }, 2500);
+
+      }, 500);
+    });
+
+    // 2. Klik "Lanjut ke Video" dari Kotak Pesan
+    btnNextToCountdown.addEventListener('click', () => {
+      storyMessageBox.classList.add('opacity-0', 'scale-95');
+      
+      setTimeout(() => {
+        storyMessageBox.classList.add('hidden');
+        storyCountdownBox.classList.remove('hidden');
+
+        let currentCount = 3;
+        countdownNumber.innerText = currentCount;
+        countdownNumber.classList.add('anim-countdown');
+        playWarmChime(523.25); // C5
+
+        const timer = setInterval(() => {
+          currentCount--;
+          if (currentCount > 0) {
+            countdownNumber.innerText = currentCount;
+            countdownNumber.classList.remove('anim-countdown');
+            void countdownNumber.offsetWidth;
+            countdownNumber.classList.add('anim-countdown');
+
+            if (currentCount === 2) playWarmChime(659.25); // E5
+            if (currentCount === 1) playWarmChime(783.99); // G5
+          } else {
+            clearInterval(timer);
+            playWarmChime(1046.50, 0.4); // C6
+
+            screenStory.classList.add('transition-opacity', 'duration-300', 'opacity-0');
+            setTimeout(() => {
+              screenStory.classList.add('hidden');
+              startVideoPlayback();
+            }, 300);
+          }
+        }, 1000);
+
+      }, 350);
+    });
+
+    // 3. Putar Video Utama & Video Teks Bersama-sama
+    function startVideoPlayback() {
+      screenVideo.classList.remove('hidden');
+
+      textVideo.currentTime = 0;
+      textVideo.play().then(() => {
+        renderChromaLoop();
+      }).catch(() => {});
+
+      video.currentTime = 0;
+      video.volume = 1.0;
+      video.muted = false;
+
+      const p = video.play();
+      if (p !== undefined) {
+        p.catch(() => {
+          video.muted = true;
+          video.play();
+        });
+      }
+    }
+
+    // 4. Video Selesai / Tombol Lewati -> Masuk ke Halaman Utama Scrapbook
+    function finishVideoAndOpenMain() {
+      video.pause();
+      textVideo.pause();
+
+      screenVideo.classList.add('transition-opacity', 'duration-700', 'opacity-0');
+      setTimeout(() => {
+        screenVideo.classList.add('hidden');
+        screenMain.classList.remove('hidden');
+        setTimeout(() => {
+          screenMain.classList.remove('opacity-0');
+          screenMain.classList.add('opacity-100');
+          triggerPinkConfetti();
+          initSpotifyPlayer();
+        }, 100);
+      }, 700);
+    }
+
+    video.addEventListener('ended', finishVideoAndOpenMain);
+    btnSkipVideo.addEventListener('click', finishVideoAndOpenMain);
+
+    // ========================================================
+    // PEMUTAR SPOTIFY DUA LAGU LANGSUNG DARI CDN KAMU
+    // ========================================================
+    const playlist = [
+      {
+        title: "Masa ini, nanti, & masa indah lainnya",
+        artist: "Nuca",
+        cover: "https://i.ibb.co.com/BVH7L9L8/IMG-20260607-WA0019.jpg",
+        src: "https://cdn.videotourl.net/videos/beed17e0-6faf-4117-a9c3-c3423594d4e9.mp4"
+      },
+      {
+        title: "you",
+        artist: "LANY",
+        cover: "https://i.ibb.co.com/4RC648Tn/IMG-20260124-WA0029.jpg",
+        src: "https://cdn.videotourl.net/videos/57933b77-a4eb-4364-9efd-8549f630747d.mp4"
+      }
+    ];
+
+    let currentTrack = 0;
+    let isMusicPlaying = false;
+
+    const btnSpotifyToggle = document.getElementById('btn-spotify-toggle');
+    const btnPrevTrack = document.getElementById('btn-prev-track');
+    const btnNextTrack = document.getElementById('btn-next-track');
+    const iconPlay = document.getElementById('icon-play');
+    const iconPause = document.getElementById('icon-pause');
+    const spotifyWave = document.getElementById('spotify-wave');
+    const trackCoverImg = document.getElementById('track-cover-img');
+    const trackTitleText = document.getElementById('track-title-text');
+    const trackArtistText = document.getElementById('track-artist-text');
+    const audioProgressBar = document.getElementById('audio-progress-bar');
+    const audioProgressContainer = document.getElementById('audio-progress-container');
+    const audioTimeCurrent = document.getElementById('audio-time-current');
+    const audioTimeTotal = document.getElementById('audio-time-total');
+    const floatingNotes = document.getElementById('floating-notes');
+    const audioStatusTag = document.getElementById('audio-status-tag');
+
+    function formatTime(sec) {
+      if (isNaN(sec) || sec <= 0) return "0:00";
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return `${m}:${s < 10 ? '0' : ''}${s}`;
+    }
+
+    function loadTrack(index, autoPlay = true) {
+      currentTrack = index;
+      const t = playlist[currentTrack];
+
+      trackCoverImg.style.opacity = '0.3';
+      setTimeout(() => {
+        trackCoverImg.src = t.cover;
+        trackCoverImg.style.opacity = '1';
+      }, 200);
+
+      trackTitleText.innerText = t.title;
+      trackArtistText.innerText = `${t.artist} • Lagu ${currentTrack + 1} dari ${playlist.length}`;
+      audioStatusTag.innerText = "Memuat audio...";
+
+      bgmAudio.src = t.src;
+      bgmAudio.load();
+
+      if (autoPlay) {
+        executePlay();
+      }
+    }
+
+    function executePlay() {
+      getAudioContext();
+      bgmAudio.volume = 0.85;
+      
+      const p = bgmAudio.play();
+      if (p !== undefined) {
+        p.then(() => {
+          isMusicPlaying = true;
+          audioStatusTag.innerText = "Sedang diputar 🎵";
+          updateSpotifyUI();
+        }).catch((err) => {
+          isMusicPlaying = false;
+          audioStatusTag.innerText = "Klik tombol putar untuk mendengar 🎧";
+          updateSpotifyUI();
+        });
+      }
+    }
+
+    function executePause() {
+      bgmAudio.pause();
+      isMusicPlaying = false;
+      audioStatusTag.innerText = "Lagu dijeda ⏸️";
+      updateSpotifyUI();
+    }
+
+    function updateSpotifyUI() {
+      if (isMusicPlaying) {
+        iconPlay.classList.add('hidden');
+        iconPause.classList.remove('hidden');
+        spotifyWave.style.opacity = '1';
+        floatingNotes.classList.remove('hidden');
+      } else {
+        iconPlay.classList.remove('hidden');
+        iconPause.classList.add('hidden');
+        spotifyWave.style.opacity = '0.3';
+        floatingNotes.classList.add('hidden');
+      }
+    }
+
+    function initSpotifyPlayer() {
+      loadTrack(0, true);
+    }
+
+    // Klik tombol Play / Pause Spotify
+    btnSpotifyToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      getAudioContext();
+
+      if (isMusicPlaying) {
+        executePause();
+      } else {
+        executePlay();
+      }
+    });
+
+    btnNextTrack.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const nextIndex = (currentTrack + 1) % playlist.length;
+      loadTrack(nextIndex, true);
+    });
+
+    btnPrevTrack.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const prevIndex = (currentTrack - 1 + playlist.length) % playlist.length;
+      loadTrack(prevIndex, true);
+    });
+
+    // Otomatis putar lagu berikutnya saat satu lagu selesai
+    bgmAudio.addEventListener('ended', () => {
+      const nextIndex = (currentTrack + 1) % playlist.length;
+      loadTrack(nextIndex, true);
+    });
+
+    // Update Waktu & Progress Bar
+    bgmAudio.addEventListener('loadedmetadata', () => {
+      if (bgmAudio.duration && !isNaN(bgmAudio.duration)) {
+        audioTimeTotal.innerText = formatTime(bgmAudio.duration);
+      }
+    });
+
+    bgmAudio.addEventListener('timeupdate', () => {
+      if (bgmAudio.duration && !isNaN(bgmAudio.duration)) {
+        const percent = (bgmAudio.currentTime / bgmAudio.duration) * 100;
+        audioProgressBar.style.width = `${percent}%`;
+        audioTimeCurrent.innerText = formatTime(bgmAudio.currentTime);
+        audioTimeTotal.innerText = formatTime(bgmAudio.duration);
+      }
+    });
+
+    // Klik pada progress bar untuk melompat ke menit tertentu
+    audioProgressContainer.addEventListener('click', (e) => {
+      const rect = audioProgressContainer.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const width = rect.width;
+      if (bgmAudio.duration && !isNaN(bgmAudio.duration)) {
+        bgmAudio.currentTime = (clickX / width) * bgmAudio.duration;
+      }
+    });
+
+    // ========================================================
+    // INTERAKSI SENTUH 4 FOTO (EFEK SEMBURAN HATI)
+    // ========================================================
+    document.querySelectorAll('.scrapbook-photo-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = (rect.left + rect.width / 2) / window.innerWidth;
+        const y = (rect.top + rect.height / 2) / window.innerHeight;
+        confetti({
+          particleCount: 16,
+          spread: 45,
+          origin: { x, y },
+          colors: ['#FF4D88', '#FF85A1', '#FFCAD4']
+        });
+        playWarmChime(783.99, 0.15);
+      });
+    });
+
+    // ========================================================
+    // INTERAKSI AMPLOP & SURAT
+    // ========================================================
+    const envelopeBox = document.getElementById('envelope-box');
+    let isEnvelopeOpened = false;
+
+    envelopeBox.addEventListener('click', () => {
+      isEnvelopeOpened = !isEnvelopeOpened;
+      envelopeBox.classList.toggle('envelope-open', isEnvelopeOpened);
+    });
+
+    // ========================================================
+    // TIUP LILIN & KONFETI
+    // ========================================================
+    const candleFlame = document.getElementById('candle-flame');
+    const btnBlowCandle = document.getElementById('btn-blow-candle');
+    const candleBlownMsg = document.getElementById('candle-blown-msg');
+    let blown = false;
+
+    function blowCandle() {
+      if (blown) return;
+      blown = true;
+      candleFlame.style.opacity = '0';
+      candleFlame.style.transform = 'scale(0.1)';
+      btnBlowCandle.disabled = true;
+      btnBlowCandle.classList.add('opacity-40', 'cursor-not-allowed');
+      document.getElementById('blow-btn-text').innerText = 'Lilin Padam ✨';
+      candleBlownMsg.classList.remove('hidden');
+
+      confetti({
+        particleCount: 70,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#FF4D88', '#FF85A1', '#FFCAD4', '#F43F5E']
+      });
+    }
+
+    candleFlame.addEventListener('click', blowCandle);
+    btnBlowCandle.addEventListener('click', blowCandle);
+
+    // Konfeti Pesta Sweet 17
+    function triggerPinkConfetti() {
+      const end = Date.now() + 2500;
+      (function frame() {
+        confetti({
+          particleCount: 3,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0 },
+          colors: ['#FF4D88', '#FF85A1', '#FFC2D1', '#FB7185']
+        });
+        confetti({
+          particleCount: 3,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1 },
+          colors: ['#FF4D88', '#FF85A1', '#FFC2D1', '#FB7185']
+        });
+        if (Date.now() < end) requestAnimationFrame(frame);
+      }());
+    }
+  </script>
+</body>
+        </html>
