@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- Cegah pemblokiran gambar (hotlink protection) dari ImgBB di OneCompiler & Browser -->
+  <meta name="referrer" content="no-referrer">
   <title>Happy 17th Birthday, Keyla Syahrani 🎀</title>
   
   <!-- Tailwind CSS CDN -->
@@ -19,7 +21,7 @@
   <style>
     body {
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: #FFE6EE;
+      background-color: #FFF0F5;
       color: #4A1B29;
       overflow-x: hidden;
       -webkit-tap-highlight-color: transparent;
@@ -29,33 +31,29 @@
     .font-script { font-family: 'Pacifico', cursive; }
     .font-cute { font-family: 'Sniglet', cursive; }
 
-    /* Pola Gingham Kotak-Kotak Pink */
-    .bg-gingham {
-      background-color: #FFF0F4;
+    /* Pola Gingham Lembut Tanpa Garis Kasar */
+    .bg-gingham-soft {
+      background-color: #FFF2F6;
       background-image: 
-        linear-gradient(45deg, rgba(255, 182, 193, 0.35) 25%, transparent 25%), 
-        linear-gradient(-45deg, rgba(255, 182, 193, 0.35) 25%, transparent 25%), 
-        linear-gradient(45deg, transparent 75%, rgba(255, 182, 193, 0.35) 75%), 
-        linear-gradient(-45deg, transparent 75%, rgba(255, 182, 193, 0.35) 75%);
-      background-size: 24px 24px;
-      background-position: 0 0, 0 12px, 12px -12px, -12px 0px;
+        linear-gradient(45deg, rgba(255, 192, 203, 0.22) 25%, transparent 25%), 
+        linear-gradient(-45deg, rgba(255, 192, 203, 0.22) 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, rgba(255, 192, 203, 0.22) 75%), 
+        linear-gradient(-45deg, transparent 75%, rgba(255, 192, 203, 0.22) 75%);
+      background-size: 20px 20px;
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
     }
 
-    /* Pola Garis-garis Pink Lucu */
-    .bg-stripes {
-      background: repeating-linear-gradient(
-        90deg,
-        #FFF2F6,
-        #FFF2F6 22px,
-        #FFD5E2 22px,
-        #FFD5E2 44px
-      );
+    /* Pola Lembut Pastel Dots */
+    .bg-cute-dots {
+      background-color: #FFF5F8;
+      background-image: radial-gradient(rgba(255, 170, 190, 0.3) 1px, transparent 1px);
+      background-size: 16px 16px;
     }
 
     /* Animasi Mengambang Lembut */
     @keyframes gentleFloat {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-8px) rotate(2deg); }
+      50% { transform: translateY(-6px) rotate(1.5deg); }
     }
     .anim-float { animation: gentleFloat 3.8s ease-in-out infinite; }
     .anim-float-reverse { animation: gentleFloat 4.2s ease-in-out infinite reverse; }
@@ -63,7 +61,7 @@
     /* Animasi Beruang Mengintip & Bergoyang */
     @keyframes bearPeek {
       0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-6px) rotate(-3deg); }
+      50% { transform: translateY(-5px) rotate(-3deg); }
     }
     .anim-bear { animation: bearPeek 2.6s ease-in-out infinite; }
 
@@ -142,7 +140,7 @@
     @keyframes photoDriftOut4 {
       0% { opacity: 0; transform: scale(0.7) translate(30%, 30%) rotate(-5deg); filter: blur(3px); }
       12% { opacity: 1; transform: scale(1) translate(18%, -18%) rotate(-2deg); filter: blur(0); }
-      62% { opacity: 1; transform: scale(1.02) translate(20%, 20%) rotate(-2deg); filter: blur(0); }
+      62% { opacity: 1; transform: scale(1.02) translate(20%, -20%) rotate(-2deg); filter: blur(0); }
       85% { opacity: 0.6; transform: scale(1.1) translate(42%, 42%) rotate(-5deg); filter: blur(2px); }
       100% { opacity: 0; transform: scale(1.25) translate(75%, 75%) rotate(-8deg); filter: blur(6px); }
     }
@@ -187,10 +185,47 @@
 
     /* Renda & Bingkai Cermin */
     .scallop-border {
-      box-shadow: 0 0 0 6px #FFF, 0 0 0 10px #FFC1D6, 0 12px 30px rgba(244, 63, 94, 0.2);
+      box-shadow: 0 0 0 6px #FFF, 0 0 0 10px #FFB8D2, 0 14px 30px rgba(244, 63, 94, 0.15);
     }
     .shadow-warm {
-      box-shadow: 0 12px 30px -6px rgba(225, 29, 72, 0.15), 0 4px 10px -2px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 10px 25px -4px rgba(225, 29, 72, 0.12), 0 4px 10px -2px rgba(0, 0, 0, 0.03);
+    }
+    .shadow-cute {
+      box-shadow: 0 12px 28px -6px rgba(255, 105, 180, 0.2), 0 4px 10px -2px rgba(0, 0, 0, 0.02);
+    }
+
+    /* Hiasan Kertas & Efek Scrapbook */
+    .scrapbook-page {
+      background-color: #FFFDF9;
+      background-image: radial-gradient(#F9C5D5 0.75px, transparent 0.75px);
+      background-size: 16px 16px;
+    }
+    .washi-tape {
+      background: rgba(255, 182, 193, 0.75);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      clip-path: polygon(0% 0%, 5% 100%, 10% 0%, 15% 100%, 90% 100%, 95% 0%, 100% 100%, 100% 0%);
+    }
+    .polaroid-frame {
+      box-shadow: 0 8px 20px -3px rgba(255, 130, 160, 0.18), 0 2px 6px rgba(0,0,0,0.04);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .polaroid-frame:hover {
+      transform: translateY(-4px) scale(1.02) !important;
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    @keyframes pinShake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-6px); }
+      40%, 80% { transform: translateX(6px); }
+    }
+    .anim-shake {
+      animation: pinShake 0.4s ease-in-out;
     }
   </style>
 </head>
@@ -230,6 +265,7 @@
         <div class="w-full h-full rounded-xl overflow-hidden bg-rose-50 flex items-center justify-center">
           <img 
             id="intro-photo"
+            referrerpolicy="no-referrer"
             src="https://i.ibb.co.com/jk5ZsKsX/Scrapbook-Photo-Collage-Happy-Birthday-Your-Story-20260904-124046-0000.png" 
             alt="[Image of Kolase Foto Ulang Tahun Keyla]" 
             class="w-full h-full object-cover"
@@ -276,19 +312,19 @@
     <div id="story-photos-box" class="absolute inset-0 hidden pointer-events-none flex items-center justify-center">
       
       <div class="absolute w-36 h-48 md:w-48 md:h-64 bg-white p-2 rounded-xl shadow-warm border border-rose-100 drift-out-1">
-        <img src="https://i.ibb.co.com/BVH7L9L8/IMG-20260607-WA0019.jpg" alt="[Image of Foto Kenangan Keyla 1]" class="w-full h-full object-cover rounded-lg">
+        <img referrerpolicy="no-referrer" src="https://i.ibb.co.com/BVH7L9L8/IMG-20260607-WA0019.jpg" alt="[Image of Foto Kenangan Keyla 1]" class="w-full h-full object-cover rounded-lg">
       </div>
 
       <div class="absolute w-36 h-48 md:w-48 md:h-64 bg-white p-2 rounded-xl shadow-warm border border-rose-100 drift-out-2">
-        <img src="https://i.ibb.co.com/4RC648Tn/IMG-20260124-WA0029.jpg" alt="[Image of Foto Kenangan Keyla 2]" class="w-full h-full object-cover rounded-lg">
+        <img referrerpolicy="no-referrer" src="https://i.ibb.co.com/4RC648Tn/IMG-20260124-WA0029.jpg" alt="[Image of Foto Kenangan Keyla 2]" class="w-full h-full object-cover rounded-lg">
       </div>
 
       <div class="absolute w-36 h-48 md:w-48 md:h-64 bg-white p-2 rounded-xl shadow-warm border border-rose-100 drift-out-3">
-        <img src="https://i.ibb.co.com/s9ZQHKDY/IMG-20260621-WA0008.jpg" alt="[Image of Foto Kenangan Keyla 3]" class="w-full h-full object-cover rounded-lg">
+        <img referrerpolicy="no-referrer" src="https://i.ibb.co.com/s9ZQHKDY/IMG-20260621-WA0008.jpg" alt="[Image of Foto Kenangan Keyla 3]" class="w-full h-full object-cover rounded-lg">
       </div>
 
       <div class="absolute w-36 h-48 md:w-48 md:h-64 bg-white p-2 rounded-xl shadow-warm border border-rose-100 drift-out-4">
-        <img src="https://i.ibb.co.com/JYNtB5Z/IMG-20260712-WA0069.jpg" alt="[Image of Foto Kenangan Keyla 4]" class="w-full h-full object-cover rounded-lg">
+        <img referrerpolicy="no-referrer" src="https://i.ibb.co.com/JYNtB5Z/IMG-20260712-WA0069.jpg" alt="[Image of Foto Kenangan Keyla 4]" class="w-full h-full object-cover rounded-lg">
       </div>
 
     </div>
@@ -387,10 +423,10 @@
   <!-- ========================================================
        TAHAP 4: HALAMAN UTAMA SCRAPBOOK AESTHETIC BARU
        ======================================================== -->
-  <main id="screen-main" class="min-h-screen pb-32 hidden opacity-0 transition-opacity duration-1000 bg-[#FFF0F4] relative">
+  <main id="screen-main" class="min-h-screen pb-32 hidden opacity-0 transition-opacity duration-1000 bg-cute-dots relative">
     
-    <!-- Audio Pemutar Musik BGM Natif -->
-    <audio id="bgm-audio" preload="auto" playsinline webkit-playsinline></audio>
+    <!-- Audio Pemutar Musik BGM -->
+    <video id="bgm-audio" playsinline webkit-playsinline preload="auto" class="hidden"></video>
 
     <!-- ========================================================
          BAGIAN 1: "TODAY IS ALL ABOUT YOU" + KALENDER + SPOTIFY CARD
@@ -398,13 +434,17 @@
     <section class="pt-12 pb-10 px-5 text-center max-w-md mx-auto relative">
       
       <!-- Judul Bagian 1 Beranimasi Lembut -->
-      <h2 class="font-cute text-2xl md:text-3xl text-[#7E2D48] mb-1 tracking-wide anim-float">
-        Today is all about you ✨
+      <div class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white/90 border border-pink-200 text-rose-500 text-xs font-semibold shadow-sm mb-3">
+        <span>✨</span> Hari Spesial untuk Keyla Syahrani <span>✨</span>
+      </div>
+
+      <h2 class="font-cute text-3xl md:text-4xl text-[#7E2D48] mb-1 tracking-wide anim-float">
+        Today is all about you 🎀
       </h2>
-      <p class="text-xs text-rose-400 mb-6 font-medium">Hari paling istimewa untuk Keyla Syahrani</p>
+      <p class="text-xs text-rose-400 mb-6 font-medium">Hari paling istimewa untuk seseorang yang paling manis</p>
 
       <!-- Kotak Kalender Pink Aesthetic -->
-      <div class="relative w-64 md:w-72 mx-auto bg-gradient-to-br from-[#FF5C8A] to-[#E93B6C] rounded-[28px] p-5 text-white shadow-warm border-2 border-white/40 mb-8 transform hover:scale-105 transition-transform duration-300">
+      <div class="relative w-64 md:w-72 mx-auto bg-gradient-to-br from-[#FF6592] to-[#E93B6C] rounded-[28px] p-5 text-white shadow-cute border-2 border-white/50 mb-8 transform hover:scale-105 transition-transform duration-300">
         
         <!-- Ikon Telapak Kucing Lucu di Sudut Kiri Atas -->
         <div class="absolute -top-3.5 left-6 text-2xl filter drop-shadow-sm select-none anim-float">
@@ -451,7 +491,7 @@
         <span>Nyalakan Musik</span> 🎧
       </h3>
 
-      <!-- Widget Pemutar Lagu ala Spotify (Langsung dari URL VideoToURL yang Kamu Berikan) -->
+      <!-- Widget Pemutar Lagu ala Spotify -->
       <div class="relative max-w-xs mx-auto">
         
         <!-- Not Musik Mengambang Keluar Saat Lagu Berputar -->
@@ -460,13 +500,13 @@
           <span class="note-2 absolute -right-4 text-pink-400 text-base font-bold">🎶</span>
         </div>
 
-        <div class="bg-[#181818] rounded-2xl p-3 shadow-2xl border border-white/10 text-white flex flex-col gap-2 text-left">
+        <div class="bg-[#181818] rounded-2xl p-3.5 shadow-2xl border border-white/10 text-white flex flex-col gap-2.5 text-left">
           
           <div class="flex items-center justify-between gap-2.5">
             
             <!-- Thumbnail Cover Lagu -->
             <div class="w-12 h-12 rounded-xl overflow-hidden bg-stone-800 shrink-0 border border-white/10 relative">
-              <img id="track-cover-img" src="https://i.ibb.co.com/BVH7L9L8/IMG-20260607-WA0019.jpg" alt="[Image of Cover Lagu]" class="w-full h-full object-cover transition-opacity duration-300">
+              <img id="track-cover-img" referrerpolicy="no-referrer" src="https://i.ibb.co.com/jvvJc8YD/4cff89e279d3.jpg" onerror="this.src='https://i.ibb.co/jvvJc8YD/4cff89e279d3.jpg'" alt="[Image of Cover Lagu]" class="w-full h-full object-cover transition-opacity duration-300">
             </div>
 
             <!-- Info Lagu -->
@@ -489,7 +529,6 @@
                 <i data-lucide="skip-back" class="w-3.5 h-3.5 fill-current"></i>
               </button>
 
-              <!-- Tombol Play / Pause dengan SVG Stabil (Anti-Macet) -->
               <button id="btn-spotify-toggle" class="w-10 h-10 rounded-full bg-white text-stone-900 flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition cursor-pointer select-none" title="Putar / Jeda">
                 <svg id="icon-play" class="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24">
                   <path d="M8 5v14l11-7z"/>
@@ -525,9 +564,9 @@
     </section>
 
     <!-- ========================================================
-         BAGIAN 2: "PRETTY GIRL" CERMIN HATI & MOTIF GINGHAM
+         BAGIAN 2: "PRETTY GIRL" CERMIN HATI & MOTIF GINGHAM LEMBUT
          ======================================================== -->
-    <section class="bg-gingham py-14 px-4 border-y border-pink-200 relative overflow-hidden text-center">
+    <section class="bg-gingham-soft py-14 px-4 border-y border-pink-200/80 relative overflow-hidden text-center">
       
       <!-- Elemen Dekorasi Awan & Bintang Bergerak -->
       <div class="absolute -top-3 left-4 text-4xl opacity-75 anim-float select-none">☁️</div>
@@ -539,17 +578,19 @@
         Pretty Girl 🎀
       </h3>
 
-      <!-- Cermin Hati Renda Berisi Foto Keyla -->
+      <!-- Cermin Hati Renda Berisi Foto Keyla Baru -->
       <div class="relative w-64 md:w-72 aspect-square mx-auto flex items-center justify-center">
         
         <div class="absolute -top-3 left-3 text-2xl anim-sparkle select-none">✨</div>
         <div class="absolute top-6 -right-3 text-3xl anim-float-reverse select-none">⭐</div>
         <div class="absolute -bottom-3 -left-3 text-2xl anim-float select-none">💐</div>
 
-        <div class="w-56 h-56 rounded-full scallop-border bg-white p-2 flex items-center justify-center relative shadow-warm transform hover:rotate-1 transition-transform duration-300">
+        <div class="w-56 h-56 rounded-full scallop-border bg-white p-2 flex items-center justify-center relative shadow-cute transform hover:rotate-1 transition-transform duration-300">
           <div class="w-full h-full rounded-full overflow-hidden bg-pink-100 relative">
             <img 
-              src="https://i.ibb.co.com/4RC648Tn/IMG-20260124-WA0029.jpg" 
+              referrerpolicy="no-referrer"
+              src="https://i.ibb.co.com/zHVCyDHZ/4a1ac43cba33.jpg" 
+              onerror="this.src='https://i.ibb.co/zHVCyDHZ/4a1ac43cba33.jpg'"
               alt="[Image of Foto Cantik Keyla]" 
               class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             >
@@ -596,7 +637,7 @@
 
       <!-- Amplop Lipat Estetik -->
       <div class="relative envelope-box cursor-pointer select-none max-w-sm mx-auto" id="envelope-box">
-        <div class="w-full h-60 bg-gradient-to-b from-[#FFAEC7] to-[#FF8DAF] rounded-3xl relative shadow-warm overflow-visible border-2 border-white/60 flex items-center justify-center">
+        <div class="w-full h-60 bg-gradient-to-b from-[#FFAEC7] to-[#FF8DAF] rounded-3xl relative shadow-cute overflow-visible border-2 border-white/60 flex items-center justify-center">
           
           <div class="envelope-flap absolute top-0 left-0 right-0 h-32 bg-[#FF8DAF] rounded-b-3xl border-b-2 border-pink-400/40 flex items-center justify-center shadow-md z-20">
             <div class="w-10 h-10 rounded-full bg-white/95 border-2 border-pink-300 shadow flex items-center justify-center text-rose-500 text-sm anim-float">
@@ -629,33 +670,35 @@
     </section>
 
     <!-- ========================================================
-         BAGIAN 4: "KUMPULAN FOTO MY BEAUTIFUL GIRL" (STRIPES & VINTAGE MIRROR)
+         BAGIAN 4: "KUMPULAN FOTO MY BEAUTIFUL GIRL" (SCRAPBOOK GALLERY DENGAN 8 FOTO LENGKAP)
          ======================================================== -->
-    <section class="bg-stripes py-14 px-4 border-t border-pink-200 relative text-center">
+    <section class="py-14 px-4 bg-white/60 border-y border-pink-200/70 relative text-center">
       
       <!-- Banner Beruang Lucu di Atas Heading -->
-      <div class="inline-block relative mb-6">
+      <div class="inline-block relative mb-7">
         <div class="absolute -top-7 left-1/2 -translate-x-1/2 text-3xl select-none filter drop-shadow anim-bear">
           🐻
         </div>
-        <div class="bg-white/95 px-6 py-2 rounded-2xl border-2 border-[#7E2D48] shadow-md">
+        <div class="bg-white px-6 py-2 rounded-2xl border-2 border-[#7E2D48] shadow-sm">
           <h3 class="font-cute text-base md:text-lg text-[#7E2D48] tracking-wide">
-            Kumpulan foto my beautiful girl
+            Kumpulan foto my beautiful girl ✨
           </h3>
         </div>
       </div>
 
-      <!-- Cermin Ornate Klasik dengan Kupu-kupu Beranimasi -->
+      <!-- Cermin Ornate Klasik dengan Kupu-kupu Beranimasi (Foto 1) -->
       <div class="relative w-56 md:w-64 mx-auto mb-10">
         
         <div class="absolute -top-4 -left-3 text-3xl anim-butterfly select-none z-10">
           🦋
         </div>
 
-        <div class="w-48 h-60 mx-auto rounded-[45px] p-2 bg-gradient-to-b from-white via-pink-50 to-white shadow-2xl border-4 border-pink-200 relative flex items-center justify-center">
+        <div class="w-48 h-60 mx-auto rounded-[45px] p-2 bg-gradient-to-b from-white via-pink-50 to-white shadow-cute border-4 border-pink-200 relative flex items-center justify-center">
           <div class="w-full h-full rounded-[38px] overflow-hidden bg-pink-100">
             <img 
-              src="https://i.ibb.co.com/s9ZQHKDY/IMG-20260621-WA0008.jpg" 
+              referrerpolicy="no-referrer"
+              src="https://i.ibb.co.com/HfG9r5D7/0dccbb37c7c4.jpg" 
+              onerror="this.src='https://i.ibb.co/HfG9r5D7/0dccbb37c7c4.jpg'"
               alt="[Image of Foto Utama Cermin Keyla]" 
               class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             >
@@ -666,31 +709,69 @@
         <div class="absolute -bottom-2 -left-2 text-2xl anim-float-reverse select-none">🌷</div>
       </div>
 
-      <!-- Grid 4 Foto Keyla Berbingkai Renda (Sentuh untuk Memunculkan Partikel Hati) -->
-      <div class="grid grid-cols-2 gap-4 max-w-xs md:max-w-sm mx-auto mb-4">
+      <!-- Galeri Scrapbook Polaroid 6 Foto Keyla Berdampingan Cantik -->
+      <div class="max-w-md mx-auto mb-4">
         
-        <div class="scrapbook-photo-card bg-white p-2 rounded-2xl shadow-md border-2 border-pink-200 transform hover:scale-105 active:scale-95 transition-all cursor-pointer">
-          <div class="aspect-square rounded-xl overflow-hidden bg-pink-50">
-            <img src="https://i.ibb.co.com/BVH7L9L8/IMG-20260607-WA0019.jpg" alt="[Image of Foto Keyla 1]" class="w-full h-full object-cover">
-          </div>
-        </div>
+        <p class="text-xs text-rose-400 font-cute mb-5 tracking-wide">
+          Setiap senyumanmu selalu punya cerita manis 💖
+        </p>
 
-        <div class="scrapbook-photo-card bg-white p-2 rounded-2xl shadow-md border-2 border-pink-200 transform hover:scale-105 active:scale-95 transition-all cursor-pointer">
-          <div class="aspect-square rounded-xl overflow-hidden bg-pink-50">
-            <img src="https://i.ibb.co.com/4RC648Tn/IMG-20260124-WA0029.jpg" alt="[Image of Foto Keyla 2]" class="w-full h-full object-cover">
+        <div class="grid grid-cols-2 gap-4">
+          
+          <!-- Foto 2 -->
+          <div class="scrapbook-photo-card polaroid-frame bg-white p-2.5 rounded-2xl transform -rotate-1 cursor-pointer relative">
+            <div class="washi-tape w-16 h-3.5 absolute -top-1.5 left-1/2 -translate-x-1/2 opacity-80"></div>
+            <div class="aspect-square rounded-xl overflow-hidden bg-pink-50 mb-1.5">
+              <img referrerpolicy="no-referrer" src="https://i.ibb.co.com/DfPHmwpy/0a765e746cb6.jpg" onerror="this.src='https://i.ibb.co/DfPHmwpy/0a765e746cb6.jpg'" alt="[Image of Foto Keyla 2]" class="w-full h-full object-cover">
+            </div>
+            <p class="font-handwriting text-base text-rose-700 font-bold">gemes banget 🥺</p>
           </div>
-        </div>
 
-        <div class="scrapbook-photo-card bg-white p-2 rounded-2xl shadow-md border-2 border-pink-200 transform hover:scale-105 active:scale-95 transition-all cursor-pointer">
-          <div class="aspect-square rounded-xl overflow-hidden bg-pink-50">
-            <img src="https://i.ibb.co.com/s9ZQHKDY/IMG-20260621-WA0008.jpg" alt="[Image of Foto Keyla 3]" class="w-full h-full object-cover">
+          <!-- Foto 3 -->
+          <div class="scrapbook-photo-card polaroid-frame bg-white p-2.5 rounded-2xl transform rotate-1 cursor-pointer relative">
+            <div class="washi-tape w-16 h-3.5 absolute -top-1.5 left-1/2 -translate-x-1/2 opacity-80"></div>
+            <div class="aspect-square rounded-xl overflow-hidden bg-pink-50 mb-1.5">
+              <img referrerpolicy="no-referrer" src="https://i.ibb.co.com/q3GH2BMZ/c2f0d4713905.jpg" onerror="this.src='https://i.ibb.co/q3GH2BMZ/c2f0d4713905.jpg'" alt="[Image of Foto Keyla 3]" class="w-full h-full object-cover">
+            </div>
+            <p class="font-handwriting text-base text-rose-700 font-bold">senyum favoritku ✨</p>
           </div>
-        </div>
 
-        <div class="scrapbook-photo-card bg-white p-2 rounded-2xl shadow-md border-2 border-pink-200 transform hover:scale-105 active:scale-95 transition-all cursor-pointer">
-          <div class="aspect-square rounded-xl overflow-hidden bg-pink-50">
-            <img src="https://i.ibb.co.com/JYNtB5Z/IMG-20260712-WA0069.jpg" alt="[Image of Foto Keyla 4]" class="w-full h-full object-cover">
+          <!-- Foto 4 -->
+          <div class="scrapbook-photo-card polaroid-frame bg-white p-2.5 rounded-2xl transform rotate-1 cursor-pointer relative">
+            <div class="washi-tape w-16 h-3.5 absolute -top-1.5 left-1/2 -translate-x-1/2 opacity-80"></div>
+            <div class="aspect-square rounded-xl overflow-hidden bg-pink-50 mb-1.5">
+              <img referrerpolicy="no-referrer" src="https://i.ibb.co.com/VpNrFc2C/d5c302223f27.jpg" onerror="this.src='https://i.ibb.co/VpNrFc2C/d5c302223f27.jpg'" alt="[Image of Foto Keyla 4]" class="w-full h-full object-cover">
+            </div>
+            <p class="font-handwriting text-base text-rose-700 font-bold">lucu teruss 🌸</p>
           </div>
+
+          <!-- Foto 5 -->
+          <div class="scrapbook-photo-card polaroid-frame bg-white p-2.5 rounded-2xl transform -rotate-1 cursor-pointer relative">
+            <div class="washi-tape w-16 h-3.5 absolute -top-1.5 left-1/2 -translate-x-1/2 opacity-80"></div>
+            <div class="aspect-square rounded-xl overflow-hidden bg-pink-50 mb-1.5">
+              <img referrerpolicy="no-referrer" src="https://i.ibb.co.com/XxD2191w/25e54a44c190.jpg" onerror="this.src='https://i.ibb.co/XxD2191w/25e54a44c190.jpg'" alt="[Image of Foto Keyla 5]" class="w-full h-full object-cover">
+            </div>
+            <p class="font-handwriting text-base text-rose-700 font-bold">cantiknya pacarku 🎀</p>
+          </div>
+
+          <!-- Foto 6 -->
+          <div class="scrapbook-photo-card polaroid-frame bg-white p-2.5 rounded-2xl transform -rotate-2 cursor-pointer relative">
+            <div class="washi-tape w-16 h-3.5 absolute -top-1.5 left-1/2 -translate-x-1/2 opacity-80"></div>
+            <div class="aspect-square rounded-xl overflow-hidden bg-pink-50 mb-1.5">
+              <img referrerpolicy="no-referrer" src="https://i.ibb.co.com/wF86DSpv/c7c40bc6f3a6.jpg" onerror="this.src='https://i.ibb.co/wF86DSpv/c7c40bc6f3a6.jpg'" alt="[Image of Foto Keyla 6]" class="w-full h-full object-cover">
+            </div>
+            <p class="font-handwriting text-base text-rose-700 font-bold">selalu manis 🌷</p>
+          </div>
+
+          <!-- Foto 7 -->
+          <div class="scrapbook-photo-card polaroid-frame bg-white p-2.5 rounded-2xl transform rotate-2 cursor-pointer relative">
+            <div class="washi-tape w-16 h-3.5 absolute -top-1.5 left-1/2 -translate-x-1/2 opacity-80"></div>
+            <div class="aspect-square rounded-xl overflow-hidden bg-pink-50 mb-1.5">
+              <img referrerpolicy="no-referrer" src="https://i.ibb.co.com/jvvJc8YD/4cff89e279d3.jpg" onerror="this.src='https://i.ibb.co/jvvJc8YD/4cff89e279d3.jpg'" alt="[Image of Foto Keyla 7]" class="w-full h-full object-cover">
+            </div>
+            <p class="font-handwriting text-base text-rose-700 font-bold">forever love ❤️</p>
+          </div>
+
         </div>
 
       </div>
@@ -698,11 +779,419 @@
     </section>
 
     <!-- ========================================================
+         BAGIAN KHUSUS: BUKU RAHASIA SCRAPBOOK (TERKUNCI PIN 05)
+         ======================================================== -->
+    <section class="py-12 px-4 text-center max-w-md mx-auto relative">
+      
+      <div class="bg-white rounded-3xl p-6 shadow-cute border-2 border-dashed border-pink-300 relative overflow-hidden">
+        
+        <!-- Ornamen Pita & Gembok Mengambang -->
+        <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-pink-500 to-rose-400 text-white flex items-center justify-center mx-auto mb-3 shadow-md anim-float">
+          <i data-lucide="lock" class="w-7 h-7"></i>
+        </div>
+
+        <h3 class="font-script text-3xl text-[#7E2D48] mb-1">
+          Secret Scrapbook Book 📖🔒
+        </h3>
+        <p class="text-xs text-rose-500 font-medium mb-2">
+          Buku rahasia berisi kata-kata spesial untuk Keyla
+        </p>
+        <p class="text-[11px] text-stone-500 leading-relaxed mb-5 font-light">
+          Buku ini dikunci dengan PIN khusus tanggal lahirmu. Masukkan 2 digit angka untuk membukanya:
+        </p>
+
+        <!-- Form Input PIN -->
+        <div class="flex flex-col items-center gap-3">
+          <div class="flex items-center gap-2 justify-center" id="pin-container">
+            <input 
+              type="password" 
+              id="secret-pin-input" 
+              maxlength="2" 
+              placeholder="••" 
+              inputmode="numeric"
+              pattern="[0-9]*"
+              class="w-24 h-12 text-center text-2xl font-bold tracking-[0.3em] rounded-2xl border-2 border-pink-300 focus:border-rose-500 focus:outline-none bg-pink-50/50 text-rose-600 shadow-inner"
+            >
+          </div>
+
+          <button id="btn-unlock-book" class="py-3 px-6 rounded-2xl bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-cute text-sm shadow-md active:scale-95 transition flex items-center gap-2 cursor-pointer">
+            <i data-lucide="key" class="w-4 h-4"></i>
+            <span>Buka Buku Scrapbook</span>
+          </button>
+
+          <p id="pin-error-msg" class="text-xs text-red-500 font-bold hidden">
+            PIN salah sayang! Coba lagi yaa 🥺 (Petunjuk: tanggal ultahmu)
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================
+         MODAL POPUP: DUA BUKU SCRAPBOOK YANG BISA DIGESER
+         ======================================================== -->
+    <div id="modal-scrapbook-reader" class="fixed inset-0 z-50 hidden bg-black/75 backdrop-blur-sm flex items-center justify-center p-3 select-none">
+      
+      <div class="bg-[#FFF0F4] rounded-3xl w-full max-w-md h-[88vh] flex flex-col shadow-2xl border-2 border-white/80 overflow-hidden relative">
+        
+        <!-- Header Buku & Tombol Tutup -->
+        <div class="px-5 pt-4 pb-3 bg-white/90 border-b border-pink-200 flex items-center justify-between shrink-0">
+          <div class="flex items-center gap-2">
+            <span class="text-xl">📖</span>
+            <div>
+              <h4 class="font-cute text-base text-[#7E2D48] leading-tight">Buku Kenangan Keyla</h4>
+              <p class="text-[10px] text-pink-400">Geser ke samping untuk membaca lembarannya</p>
+            </div>
+          </div>
+          <button id="btn-close-scrapbook" class="w-8 h-8 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center hover:bg-pink-200 active:scale-90 transition cursor-pointer">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <!-- Tab Pemilih Buku (Tema 1 vs Tema 2) -->
+        <div class="flex p-2 bg-pink-100/70 border-b border-pink-200 shrink-0 gap-2">
+          <button id="tab-book-1" class="flex-1 py-2 px-2 rounded-xl text-xs font-bold text-white bg-rose-500 shadow-sm transition flex items-center justify-center gap-1.5 cursor-pointer">
+            <span>💌</span>
+            <span class="truncate">Pesan Dari Aku</span>
+          </button>
+          <button id="tab-book-2" class="flex-1 py-2 px-2 rounded-xl text-xs font-medium text-rose-700 bg-white/60 hover:bg-white transition flex items-center justify-center gap-1.5 cursor-pointer">
+            <span>🎂</span>
+            <span class="truncate">Pesan Ulang Tahun</span>
+          </button>
+        </div>
+
+        <!-- Wadah Halaman yang Bisa Digeser / Di-scroll ke Samping -->
+        <div class="flex-1 overflow-hidden relative p-3 flex flex-col justify-between">
+          
+          <!-- Slider Halaman Buku 1 -->
+          <div id="slider-book-1" class="w-full h-full flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 pb-2">
+            
+            <!-- Hal 1 -->
+            <div class="snap-center shrink-0 w-full h-full scrapbook-page rounded-2xl p-5 border border-pink-200 shadow-sm flex flex-col justify-between relative overflow-y-auto">
+              <div class="washi-tape w-20 h-4 absolute -top-1 left-1/2 -translate-x-1/2 opacity-75"></div>
+              <div>
+                <div class="flex items-center justify-between text-[11px] text-pink-400 font-bold mb-3 border-b border-pink-100 pb-1">
+                  <span>Halaman 1 dari 9</span>
+                  <span>✨ Dimulai dari Sini</span>
+                </div>
+                <p class="font-handwriting text-xl text-stone-700 leading-relaxed">
+                  halloww sayanggg akuuu sebenernyaaa bingunggg mauuu mulaiii dari manaa, karena rasanya banyak banget yang pengen aku tuliss di sini. tapi akhirnya aku sadar, mungkin aku nggak harus punya kata-kata yang sempurnaa buat ngejelasin semuanya. aku cuma mau nulis apa yang aku rasain, dengan cara aku sendiri 🌸
+                </p>
+              </div>
+              <div class="text-right text-xs text-pink-400 font-cute mt-3">👉 Geser ke samping</div>
+            </div>
+
+            <!-- Hal 2 -->
+            <div class="snap-center shrink-0 w-full h-full scrapbook-page rounded-2xl p-5 border border-pink-200 shadow-sm flex flex-col justify-between relative overflow-y-auto">
+              <div class="washi-tape w-20 h-4 absolute -top-1 left-1/2 -translate-x-1/2 opacity-75"></div>
+              <div>
+                <div class="flex items-center justify-between text-[11px] text-pink-400 font-bold mb-3 border-b border-pink-100 pb-1">
+                  <span>Halaman 2 dari 9</span>
+                  <span>🤍 Rasa Syukur</span>
+                </div>
+                <p class="font-handwriting text-xl text-stone-700 leading-relaxed">
+                  aku bersyukur bangettt bisa kenal sama kamuu. dari sekian banyak orang yang ada di dunia ini, entah gimana ceritanya kita bisa ketemu, saling kenal, sampai akhirnya bisa sejauh iniii. mungkinnn awalnyaa semuanya terasa biasa ajaa, tapi ternyata dari hal-hal kecil ituu tumbuhh banyak bangettt ceritaa yanggg sekarang jadi bagian dari hidup akuuu 🌷
+                </p>
+              </div>
+              <div class="text-right text-xs text-pink-400 font-cute mt-3">👉 Geser</div>
+            </div>
+
+            <!-- Hal 3 -->
+            <div class="snap-center shrink-0 w-full h-full scrapbook-page rounded-2xl p-5 border border-pink-200 shadow-sm flex flex-col justify-between relative overflow-y-auto">
+              <div class="washi-tape w-20 h-4 absolute -top-1 left-1/2 -translate-x-1/2 opacity-75"></div>
+              <div>
+                <div class="flex items-center justify-between text-[11px] text-pink-400 font-bold mb-3 border-b border-pink-100 pb-1">
+                  <span>Halaman 3 dari 9</span>
+                  <span>🎀 Hal Kecil Tentangmu</span>
+                </div>
+                <p class="font-handwriting text-xl text-stone-700 leading-relaxed">
+                  aku sukaa banget sama hal-hal kecil tentang kamuu. cara kamu cerita, cara kamu ketawa, cara kamu merespon sesuatu, bahkan hal-hal kecil yang mungkin menurut kamu nggak pentinggg. buat aku, justru hal-hal kecil itulah yang bikin kamu jadi kamuuu ✨
+                </p>
+              </div>
+              <div class="text-right text-xs text-pink-400 font-cute mt-3">👉 Geser</div>
+            </div>
+
+            <!-- Hal 4 -->
+            <div class="snap-center shrink-0 w-full h-full scrapbook-page rounded-2xl p-5 border border-pink-200 shadow-sm flex flex-col justify-between relative overflow-y-auto">
+              <div class="washi-tape w-20 h-4 absolute -top-1 left-1/2 -translate-x-1/2 opacity-75"></div>
+              <div>
+                <div class="flex items-center justify-between text-[11px] text-pink-400 font-bold mb-3 border-b border-pink-100 pb-1">
+                  <span>Halaman 4 dari 9</span>
+                  <span>🌻 Melewati Bersama</span>
+                </div>
+                <p class="font-handwriting text-xl text-stone-700 leading-relaxed">
+                  kadang aku mungkin nggak selalu bisa nunjukin semuanya dengan cara yang benarrr. kadang aku bisa ngeselin, kadang ada salah ngomong, kadang ada salah paham, dan mungkin ada saat-saat dimana kita sama-sama capek. tapi satu hal yang aku mau kamu tauu, aku tetap menghargai setiap waktu yang kita lewatin barenggg 🤍
+                </p>
+              </div>
+              <div class="text-right text-xs text-pink-400 font-cute mt-3">👉 Geser</div>
+            </div>
+
+            <!-- Hal 5 -->
+            <div class="snap-center shrink-0 w-full h-full scrapbook-page rounded-2xl p-5 border border-pink-200 shadow-sm flex flex-col justify-between relative overflow-y-auto">
+              <div class="washi-tape w-20 h-4 absolute -top-1 left-1/2 -translate-x-1/2 opacity-75"></div>
+              <div>
+                <div class="flex items-center justify-between text-[11px] text-pink-400 font-bold mb-3 border-b border-pink-100 pb-1">
+                  <span>Halaman 5 dari 9</span>
+                  <span>🧸 Terima Kasih Banyak</span>
+                </div>
+                <p class="font-handwriting text-xl text-stone-700 leading-relaxed">
+                  makasihhh yaa udah hadir di hidup aku. makasih udah mau dengerin cerita aku, nemenin aku, ketawa bareng aku, dan jadi bagian dari banyak banget momen yang sekarang aku simpan di kepala aku 💖
+                </p>
+              </div>
+              <div class="text-right text-xs text-pink-400 font-cute mt-3">👉 Geser</div>
+            </div>
+
+            <!-- Hal 6 -->
+            <div class="snap-center shrink-0 w-full h-full scrapbook-page rounded-2xl p-5 border border-pink-200 shadow-sm flex flex-col justify-between relative overflow-y-auto">
+              <div class="washi-tape w-20 h-4 absolute -top-1 left-1/2 -translate-x-1/2 opacity-75"></div>
+              <div>
+                <div class="flex items-center justify-between text-[11px] text-pink-400 font-bold mb-3 border-b border-pink-100 pb-1">
+                  <span>Halaman 6 dari 9</span>
+                  <span>🕊️ Jangan Terlalu Keras</span>
+                </div>
+                <p class="font-handwriting text-xl text-stone-700 leading-relaxed">
+                  aku juga mau kamu ingettt, kamu nggak harus selalu sempurna. kamu nggak harus selalu keliatan kuat. kalau suatu hari kamu capek, sedih, atau ngerasa semuanya terlalu berat, jangan terlalu keras sama diri kamu sendiriii. kamu udah sejauh ini, dan itu sendiri udah sesuatu yang pantas kamu hargai 🌸
+                </p>
+              </div>
+              <div class="text-right text-xs text-pink-400 font-cute mt-3">👉 Geser</div>
+            </div>
+
+            <!-- Hal 7 -->
+            <div class="snap-center shrink-0 w-full h-full scrapbook-page rounded-2xl p-5 border border-pink-200 shadow-sm flex flex-col justify-between relative overflow-y-auto">
+              <div class="washi-tape w-20 h-4 absolute -top-1 left-1/2 -translate-x-1/2 opacity-75"></div>
+              <div>
+                <div class="flex items-center justify-between text-[11px] text-pink-400 font-bold mb-3 border-b border-pink-100 pb-1">
+                  <span>Halaman 7 dari 9</span>
+                  <span>🌈 Momen Sekarang</span>
+                </div>
+                <p class="font-handwriting text-xl text-stone-700 leading-relaxed">
+                  aku nggak tauu apa yang bakal terjadi di masa depan. kita juga nggak bisa tau hidup bakal bawa kita ke mana. tapi untuk sekarang, aku cuma mau menikmati setiap momen yang masih bisa kita punyaaa. ketawa bareng, cerita hal random, saling ganggu, saling support, dan bikin sebanyak mungkin kenangan yang suatu hari nanti bisa kita inget sambil senyum 🌷
+                </p>
+              </div>
+              <div class="text-right text-xs text-pink-400 font-cute mt-3">👉 Geser</div>
+            </div>
+
+            <!-- Hal 8 -->
+            <div class="snap-center shrink-0 w-full h-full scrapbook-page rounded-2xl p-5 border border-pink-200 shadow-sm flex flex-col justify-between relative overflow-y-auto">
+              <div class="washi-tape w-20 h-4 absolute -top-1 left-1/2 -translate-x-1/2 opacity-75"></div>
+              <div>
+                <div class="flex items-center justify-between text-[11px] text-pink-400 font-bold mb-3 border-b border-pink-100 pb-1">
+                  <span>Halaman 8 dari 9</span>
+                  <span>✨ Doa Tulus</span>
+                </div>
+                <p class="font-handwriting text-xl text-stone-700 leading-relaxed">
+                  semoga kamu selalu punya alasan buat tersenyum, semoga hal-hal baik selalu datang ke hidup kamu, dan semoga semua hal yang kamu impikan pelan-pelan bisa jadi kenyataannn 🤲💖
+                </p>
+              </div>
+              <div class="text-right text-xs text-pink-400 font-cute mt-3">👉 Geser</div>
+            </div>
+
+            <!-- Hal 9 -->
+            <div class="snap-center shrink-0 w-full h-full scrapbook-page rounded-2xl p-5 border border-pink-200 shadow-sm flex flex-col justify-between relative overflow-y-auto">
+              <div class="washi-tape w-20 h-4 absolute -top-1 left-1/2 -translate-x-1/2 opacity-75"></div>
+              <div>
+                <div class="flex items-center justify-between text-[11px] text-pink-400 font-bold mb-3 border-b border-pink-100 pb-1">
+                  <span>Halaman 9 dari 9</span>
+                  <span>💌 Penutup Surat</span>
+                </div>
+                <p class="font-handwriting text-2xl text-rose-600 leading-relaxed font-bold">
+                  terakhirrr, aku cuma mau bilang...<br><br>
+                  makasih udah jadi bagian dari cerita aku.<br>
+                  makasih udah bertahan sejauh ini.<br>
+                  makasih udah jadi kamuuu 🤍✨
+                </p>
+              </div>
+              <div class="text-center text-xs text-rose-500 font-cute mt-3">Selesai Membaca Buku 1 💕</div>
+            </div>
+
+          </div>
+
+          <!-- Slider Halaman Buku 2 (Pesan Ulang Tahun Lengkap) -->
+          <div id="slider-book-2" class="w-full h-full hidden overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 pb-2">
+            
+            <!-- Bab 1 -->
+            <div class="snap-center shrink-0 w-full h-full scrapbook-page rounded-2xl p-5 border border-pink-200 shadow-sm flex flex-col justify-between relative overflow-y-auto">
+              <div class="washi-tape w-20 h-4 absolute -top-1 left-1/2 -translate-x-1/2 opacity-75"></div>
+              <div>
+                <div class="flex items-center justify-between text-[11px] text-pink-400 font-bold mb-3 border-b border-pink-100 pb-1">
+                  <span>Bab 1 dari 10</span>
+                  <span>🎂 Hari Lahirmu</span>
+                </div>
+                <p class="font-handwriting text-lg text-stone-700 leading-relaxed">
+                  happy birthdayyy, sayanggg 🤍🎂<br><br>
+                  hari iniii adalah salah satu hari yang menurut aku cukup spesial, karena di hari inilah seseorang yang sekarang menjadi bagian dari hidup aku lahir ke duniaaa. seseorang yang mungkin dulu aku nggak pernah bayangin bakal aku kenal, bakal aku sayang, dan bakal punya tempat sendiri di hidup aku.
+                </p>
+              </div>
+              <div class="text-right text-xs text-pink-400 font-cute mt-3">👉 Geser</div>
+            </div>
+
+            <!-- Bab 2 -->
+            <div class="snap-center shrink-0 w-full h-full scrapbook-page rounded-2xl p-5 border border-pink-200 shadow-sm flex flex-col justify-between relative overflow-y-auto">
+              <div class="washi-tape w-20 h-4 absolute -top-1 left-1/2 -translate-x-1/2 opacity-75"></div>
+              <div>
+                <div class="flex items-center justify-between text-[11px] text-pink-400 font-bold mb-3 border-b border-pink-100 pb-1">
+                  <span>Bab 2 dari 10</span>
+                  <span>🥹🤍 Selamat Ulang Tahun</span>
+                </div>
+                <p class="font-handwriting text-lg text-stone-700 leading-relaxed">
+                  jadiii, di hari ulang tahun kamu ini, aku mau ngucapin sesuatu yang mungkin nggak akan pernah cukup kalau cuma ditulis dalam satu halaman. tapi aku tetep mau coba, karena aku pengen kamu punya sesuatu yang bisa kamu baca lagi nanti, kapan pun kamu mauu.<br><br>
+                  selamat ulang tahun yaaa, sayanggg. 🥹🤍
+                </p>
+              </div>
+              <div class="text-right text-xs text-pink-400 font-cute mt-3">👉 Geser</div>
+            </div>
+
+            <!-- Bab 3 -->
+            <div class="snap-center shrink-0 w-full h-full scrapbook-page rounded-2xl p-5 border border-pink-200 shadow-sm flex flex-col justify-between relative overflow-y-auto">
+              <div class="washi-tape w-20 h-4 absolute -top-1 left-1/2 -translate-x-1/2 opacity-75"></div>
+              <div>
+                <div class="flex items-center justify-between text-[11px] text-pink-400 font-bold mb-3 border-b border-pink-100 pb-1">
+                  <span>Bab 3 dari 10</span>
+                  <span>✨ Di Umur Barumu</span>
+                </div>
+                <p class="font-handwriting text-lg text-stone-700 leading-relaxed">
+                  semoga di umur kamu yang baruuu ini, kamu bisa menemukan lebih banyak hal yang bikin kamu bahagiaaa. semoga semakin banyak hal baik yang datang ke hidup kamu. semoga semua doa yang selama ini kamu simpan pelan-pelan menemukan jalannya untuk menjadi kenyataannn.<br><br>
+                  semoga kamu selalu diberikan kesehatan, kekuatan, kesabaran, dan kemudahan dalam menjalani semua hal di depan kamu 🤲
+                </p>
+              </div>
+              <div class="text-right text-xs text-pink-400 font-cute mt-3">👉 Geser</div>
+            </div>
+
+            <!-- Bab 4 -->
+            <div class="snap-center shrink-0 w-full h-full scrapbook-page rounded-2xl p-5 border border-pink-200 shadow-sm flex flex-col justify-between relative overflow-y-auto">
+              <div class="washi-tape w-20 h-4 absolute -top-1 left-1/2 -translate-x-1/2 opacity-75"></div>
+              <div>
+                <div class="flex items-center justify-between text-[11px] text-pink-400 font-bold mb-3 border-b border-pink-100 pb-1">
+                  <span>Bab 4 dari 10</span>
+                  <span>💪 Percaya Dirimu</span>
+                </div>
+                <p class="font-handwriting text-lg text-stone-700 leading-relaxed">
+                  aku tauu mungkin perjalanan kamu nggak akan selalu mudah. bakal ada hari dimana kamu capekkk, kecewa, atau sesuatu nggak berjalan sesuai harapan. tapi aku berharap kamu nggak pernah berhenti percaya sama diri kamu sendiri.<br><br>
+                  kalau suatu hari nanti kamu gagal, jangan langsung menganggap diri kamu nggak mampu.<br>
+                  kalau suatu hari nanti kamu jatuh, jangan berpikir kalau semuanya sudah selesai.<br>
+                  kalau suatu hari merasa sendirian, inget kalau kamu sudah melewati banyak hal hebat sampai titik ini.
+                </p>
+              </div>
+              <div class="text-right text-xs text-pink-400 font-cute mt-3">👉 Geser</div>
+            </div>
+
+            <!-- Bab 5 -->
+            <div class="snap-center shrink-0 w-full h-full scrapbook-page rounded-2xl p-5 border border-pink-200 shadow-sm flex flex-col justify-between relative overflow-y-auto">
+              <div class="washi-tape w-20 h-4 absolute -top-1 left-1/2 -translate-x-1/2 opacity-75"></div>
+              <div>
+                <div class="flex items-center justify-between text-[11px] text-pink-400 font-bold mb-3 border-b border-pink-100 pb-1">
+                  <span>Bab 5 dari 10</span>
+                  <span>🤍 Sayangi Dirimu Sendiri</span>
+                </div>
+                <p class="font-handwriting text-lg text-stone-700 leading-relaxed">
+                  aku juga berharap di umur kamu yang baru ini kamu bisa lebih sayang sama diri kamu sendiri. jangan terlalu sering menyalahkan diri sendiri. jangan terlalu sering membandingkan diri kamu dengan orang lain. kamu punya jalan kamu sendiri, punya waktu kamu sendiri, dan punya cerita kamu sendiri.<br><br>
+                  kamu nggak harus menjadi seperti orang lain untuk menjadi seseorang yang berharga.<br>
+                  kamu cukup menjadi diri kamu sendiri. 🤍
+                </p>
+              </div>
+              <div class="text-right text-xs text-pink-400 font-cute mt-3">👉 Geser</div>
+            </div>
+
+            <!-- Bab 6 -->
+            <div class="snap-center shrink-0 w-full h-full scrapbook-page rounded-2xl p-5 border border-pink-200 shadow-sm flex flex-col justify-between relative overflow-y-auto">
+              <div class="washi-tape w-20 h-4 absolute -top-1 left-1/2 -translate-x-1/2 opacity-75"></div>
+              <div>
+                <div class="flex items-center justify-between text-[11px] text-pink-400 font-bold mb-3 border-b border-pink-100 pb-1">
+                  <span>Bab 6 dari 10</span>
+                  <span>😭🤍 Makasih Sudah Lahir</span>
+                </div>
+                <p class="font-handwriting text-lg text-stone-700 leading-relaxed">
+                  dan aku juga mau bilang makasihhh.<br>
+                  makasih karena sudah lahir ke dunia ini.<br><br>
+                  kedengarannya mungkin sederhanaaa banget, tapi kalau kamu nggak pernah lahir, aku nggak akan pernah punya kesempatan buat mengenal seseorang seperti kamu. aku nggak akan pernah tahu rasanya punya seseorang yang bisa diajak cerita hal random, dan kenangan-kenangan manis yang sekarang aku simpan.
+                </p>
+              </div>
+              <div class="text-right text-xs text-pink-400 font-cute mt-3">👉 Geser</div>
+            </div>
+
+            <!-- Bab 7 -->
+            <div class="snap-center shrink-0 w-full h-full scrapbook-page rounded-2xl p-5 border border-pink-200 shadow-sm flex flex-col justify-between relative overflow-y-auto">
+              <div class="washi-tape w-20 h-4 absolute -top-1 left-1/2 -translate-x-1/2 opacity-75"></div>
+              <div>
+                <div class="flex items-center justify-between text-[11px] text-pink-400 font-bold mb-3 border-b border-pink-100 pb-1">
+                  <span>Bab 7 dari 10</span>
+                  <span>🌷 Untuk Semua Momen</span>
+                </div>
+                <p class="font-handwriting text-lg text-stone-700 leading-relaxed">
+                  terima kasih sudah hadir, terima kasih untuk semua waktu yang sudah kamu kasih, perhatian kecil, tawa, dan cerita yang pernah kamu bagi.<br><br>
+                  aku nggak cuma menghargai kamu ketika kamu bahagia. aku juga menghargai kamu ketika lagi capek, sedih, bingung, atau merasa semuanya terlalu berat. kalau kamu merasa sedih, nggak apa-apa untuk nangis. kamu nggak harus selalu sempurna.
+                </p>
+              </div>
+              <div class="text-right text-xs text-pink-400 font-cute mt-3">👉 Geser</div>
+            </div>
+
+            <!-- Bab 8 -->
+            <div class="snap-center shrink-0 w-full h-full scrapbook-page rounded-2xl p-5 border border-pink-200 shadow-sm flex flex-col justify-between relative overflow-y-auto">
+              <div class="washi-tape w-20 h-4 absolute -top-1 left-1/2 -translate-x-1/2 opacity-75"></div>
+              <div>
+                <div class="flex items-center justify-between text-[11px] text-pink-400 font-bold mb-3 border-b border-pink-100 pb-1">
+                  <span>Bab 8 dari 10</span>
+                  <span>📖 Halaman Baru</span>
+                </div>
+                <p class="font-handwriting text-lg text-stone-700 leading-relaxed">
+                  dan kalau nanti ada hari dimana kamu merasa semuanya terlalu berat, aku harap kamu inget kalau hidup kamu masih punya banyak halaman yang belum ditulis.<br><br>
+                  masih banyak tempat yang belum kamu datangi, makanan yang belum dicoba, mimpi yang belum diwujudkan, dan masih banyak kenangan yang belum kita buattt 🤍
+                </p>
+              </div>
+              <div class="text-right text-xs text-pink-400 font-cute mt-3">👉 Geser</div>
+            </div>
+
+            <!-- Bab 9 -->
+            <div class="snap-center shrink-0 w-full h-full scrapbook-page rounded-2xl p-5 border border-pink-200 shadow-sm flex flex-col justify-between relative overflow-y-auto">
+              <div class="washi-tape w-20 h-4 absolute -top-1 left-1/2 -translate-x-1/2 opacity-75"></div>
+              <div>
+                <div class="flex items-center justify-between text-[11px] text-pink-400 font-bold mb-3 border-b border-pink-100 pb-1">
+                  <span>Bab 9 dari 10</span>
+                  <span>🥹 Titik Ini</span>
+                </div>
+                <p class="font-handwriting text-lg text-stone-700 leading-relaxed">
+                  semoga umur kamu yang baru ini menjadi salah satu bab terbaik dalam hidup kamu. semoga halaman-halaman berikutnya dipenuhi cerita yang jauh lebih indah.<br><br>
+                  dan semoga nanti, ketika kita membuka scrapbook ini lagi, kita bisa melihat halaman ini sambil tersenyum dan berkata...<br>
+                  “ternyata dulu kita pernah ada di titik ini yaaa.” 🥹
+                </p>
+              </div>
+              <div class="text-right text-xs text-pink-400 font-cute mt-3">👉 Geser</div>
+            </div>
+
+            <!-- Bab 10 -->
+            <div class="snap-center shrink-0 w-full h-full scrapbook-page rounded-2xl p-5 border border-pink-200 shadow-sm flex flex-col justify-between relative overflow-y-auto">
+              <div class="washi-tape w-20 h-4 absolute -top-1 left-1/2 -translate-x-1/2 opacity-75"></div>
+              <div>
+                <div class="flex items-center justify-between text-[11px] text-pink-400 font-bold mb-3 border-b border-pink-100 pb-1">
+                  <span>Bab 10 dari 10</span>
+                  <span>🤍🎂 Happy Birthday!</span>
+                </div>
+                <p class="font-handwriting text-xl text-rose-600 leading-relaxed font-bold">
+                  sekali lagi...<br>
+                  selamat ulang tahun, sayanggggg. 🎂🤍<br><br>
+                  i hope this new chapter of your life is kinder, happier, and full of beautiful moments.<br><br>
+                  happy birthdayyy, my favorite personnn. 🤍🎂<br>
+                  semoga masih banyaaak halaman yang bisa kita tulis setelah halaman iniiii. ✨
+                </p>
+              </div>
+              <div class="text-center text-xs text-rose-500 font-cute mt-3">Penuh Cinta Selalu ❤️</div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================================
          BAGIAN 5: PESAN PANJANG & CLOSING SECTION
          ======================================================== -->
     <section class="py-14 px-5 text-center max-w-md mx-auto relative">
       
-      <div class="bg-white/95 rounded-3xl p-6 shadow-warm border border-pink-100 text-stone-700 text-xs leading-relaxed font-light mb-12 text-center transform hover:scale-[1.01] transition-transform">
+      <div class="bg-white rounded-3xl p-6 shadow-cute border border-pink-100 text-stone-700 text-xs leading-relaxed font-light mb-12 text-center transform hover:scale-[1.01] transition-transform">
         <p class="mb-3">
           "Semoga kamu selalu dikelilingi sama orang-orang yang tulus, hal-hal yang baik, dan momen-momen sederhana yang bikin hati kamu tenang."
         </p>
@@ -722,20 +1211,20 @@
         Closing 🌸
       </h3>
 
-      <!-- Frame Cermin Oval Renda Berisi Foto Keyla & Boneka Beruang -->
+      <!-- Frame Cermin Oval Renda Berisi Foto Penutup Keyla Baru (Foto 8) -->
       <div class="relative w-56 mx-auto mb-6">
         <div class="absolute -top-3 -right-2 text-3xl anim-bear select-none z-10">🧸</div>
         <div class="absolute top-8 -left-3 text-2xl anim-float select-none z-10">💐</div>
 
-        <div class="w-48 h-56 mx-auto rounded-[50px] p-2 bg-gradient-to-b from-white via-pink-100 to-white shadow-xl border-4 border-pink-200 flex items-center justify-center">
+        <div class="w-48 h-56 mx-auto rounded-[50px] p-2 bg-gradient-to-b from-white via-pink-100 to-white shadow-cute border-4 border-pink-200 flex items-center justify-center">
           <div class="w-full h-full rounded-[42px] overflow-hidden bg-pink-100">
-            <img src="https://i.ibb.co.com/JYNtB5Z/IMG-20260712-WA0069.jpg" alt="[Image of Foto Penutup Keyla]" class="w-full h-full object-cover">
+            <img referrerpolicy="no-referrer" src="https://i.ibb.co.com/zHVCyDHZ/4a1ac43cba33.jpg" onerror="this.src='https://i.ibb.co/zHVCyDHZ/4a1ac43cba33.jpg'" alt="[Image of Foto Penutup Keyla]" class="w-full h-full object-cover">
           </div>
         </div>
       </div>
 
       <!-- Kartu Pesan Terakhir -->
-      <div class="bg-white/95 rounded-3xl p-6 shadow-warm border border-pink-200 text-stone-700 text-xs leading-relaxed text-center relative">
+      <div class="bg-white rounded-3xl p-6 shadow-cute border border-pink-200 text-stone-700 text-xs leading-relaxed text-center relative">
         <h5 class="font-serif-vintage font-bold text-sm text-stone-800 mb-2">
           That's all for this little surprise.
         </h5>
@@ -998,19 +1487,19 @@
     btnSkipVideo.addEventListener('click', finishVideoAndOpenMain);
 
     // ========================================================
-    // PEMUTAR SPOTIFY DUA LAGU LANGSUNG DARI CDN KAMU
+    // PEMUTAR SPOTIFY DUA LAGU LANGSUNG DARI CDN
     // ========================================================
     const playlist = [
       {
         title: "Masa ini, nanti, & masa indah lainnya",
         artist: "Nuca",
-        cover: "https://i.ibb.co.com/BVH7L9L8/IMG-20260607-WA0019.jpg",
+        cover: "https://i.ibb.co.com/jvvJc8YD/4cff89e279d3.jpg",
         src: "https://cdn.videotourl.net/videos/beed17e0-6faf-4117-a9c3-c3423594d4e9.mp4"
       },
       {
         title: "you",
         artist: "LANY",
-        cover: "https://i.ibb.co.com/4RC648Tn/IMG-20260124-WA0029.jpg",
+        cover: "https://i.ibb.co.com/zHVCyDHZ/4a1ac43cba33.jpg",
         src: "https://cdn.videotourl.net/videos/57933b77-a4eb-4364-9efd-8549f630747d.mp4"
       }
     ];
@@ -1166,7 +1655,7 @@
     });
 
     // ========================================================
-    // INTERAKSI SENTUH 4 FOTO (EFEK SEMBURAN HATI)
+    // INTERAKSI SENTUH FOTO (EFEK SEMBURAN HATI)
     // ========================================================
     document.querySelectorAll('.scrapbook-photo-card').forEach(card => {
       card.addEventListener('click', (e) => {
@@ -1244,6 +1733,74 @@
         if (Date.now() < end) requestAnimationFrame(frame);
       }());
     }
+
+    // ========================================================
+    // LOGIKA BUKU RAHASIA SCRAPBOOK (PIN 05 & SWIPE SLIDER)
+    // ========================================================
+    const btnUnlockBook = document.getElementById('btn-unlock-book');
+    const secretPinInput = document.getElementById('secret-pin-input');
+    const pinErrorMsg = document.getElementById('pin-error-msg');
+    const pinContainer = document.getElementById('pin-container');
+    const modalScrapbookReader = document.getElementById('modal-scrapbook-reader');
+    const btnCloseScrapbook = document.getElementById('btn-close-scrapbook');
+    
+    const tabBook1 = document.getElementById('tab-book-1');
+    const tabBook2 = document.getElementById('tab-book-2');
+    const sliderBook1 = document.getElementById('slider-book-1');
+    const sliderBook2 = document.getElementById('slider-book-2');
+
+    function checkPinAndUnlock() {
+      const enteredPin = secretPinInput.value.trim();
+      if (enteredPin === '05') {
+        pinErrorMsg.classList.add('hidden');
+        secretPinInput.value = '';
+        modalScrapbookReader.classList.remove('hidden');
+        playWarmChime(880, 0.3); // Nada A5 berhasil
+        confetti({
+          particleCount: 40,
+          spread: 60,
+          origin: { y: 0.7 },
+          colors: ['#FF4D88', '#FF85A1', '#FFCAD4']
+        });
+      } else {
+        pinErrorMsg.classList.remove('hidden');
+        pinContainer.classList.add('anim-shake');
+        playWarmChime(300, 0.2); // Nada salah
+        setTimeout(() => {
+          pinContainer.classList.remove('anim-shake');
+        }, 400);
+      }
+    }
+
+    btnUnlockBook.addEventListener('click', checkPinAndUnlock);
+    secretPinInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        checkPinAndUnlock();
+      }
+    });
+
+    btnCloseScrapbook.addEventListener('click', () => {
+      modalScrapbookReader.classList.add('hidden');
+    });
+
+    // Pergantian Tab Buku 1 & Buku 2
+    tabBook1.addEventListener('click', () => {
+      tabBook1.className = "flex-1 py-2 px-2 rounded-xl text-xs font-bold text-white bg-rose-500 shadow-sm transition flex items-center justify-center gap-1.5 cursor-pointer";
+      tabBook2.className = "flex-1 py-2 px-2 rounded-xl text-xs font-medium text-rose-700 bg-white/60 hover:bg-white transition flex items-center justify-center gap-1.5 cursor-pointer";
+      sliderBook1.classList.remove('hidden');
+      sliderBook2.classList.add('hidden');
+      sliderBook1.scrollLeft = 0;
+      playWarmChime(659.25, 0.15);
+    });
+
+    tabBook2.addEventListener('click', () => {
+      tabBook2.className = "flex-1 py-2 px-2 rounded-xl text-xs font-bold text-white bg-rose-500 shadow-sm transition flex items-center justify-center gap-1.5 cursor-pointer";
+      tabBook1.className = "flex-1 py-2 px-2 rounded-xl text-xs font-medium text-rose-700 bg-white/60 hover:bg-white transition flex items-center justify-center gap-1.5 cursor-pointer";
+      sliderBook2.classList.remove('hidden');
+      sliderBook1.classList.add('hidden');
+      sliderBook2.scrollLeft = 0;
+      playWarmChime(783.99, 0.15);
+    });
   </script>
 </body>
-        </html>
+  </html>idbiznetvip.rajaserver.web.id:443@rajaserver-kctmc:hpzslmkk
